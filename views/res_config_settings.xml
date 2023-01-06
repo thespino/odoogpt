@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="odoogpt_res_config_settings_view_form" model="ir.ui.view">
+        <field name="name">res.config.settings.view.form.odoogpt</field>
+        <field name="model">res.config.settings</field>
+        <field name="priority" eval="0" />
+        <field name="inherit_id" ref="base.res_config_settings_view_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//div[hasclass('settings')]" position="inside">
+                <div
+                    class="app_settings_block"
+                    data-string="Odoo GPT"
+                    string="Odoo GPT"
+                    data-key="odoogpt"
+                >
+                    <div id="odoogpt_openai_api">
+                        <h2>OpenAI Api</h2>
+
+                        <div class="row mt16 o_settings_container" name="odoogpt_openai_api_container">
+                            <div class="col-12 col-lg-6 o_setting_box" id="odoogpt_openai_api_key">
+                                <div class="o_setting_left_pane">
+                                </div>
+                                <div class="o_setting_right_pane">
+                                    <p class="mb-0">
+                                        <label for="odoogpt_openai_model" />
+                                    </p>
+                                    <p class="mb16 text-muted">
+                                        Insert your OpenAI Api token. It can be found at 
+                                        <a href="https://beta.openai.com/account/api-keys" target="_blank">https://beta.openai.com/account/api-keys</a>. <br/>
+                                        Please keep it secret safe!
+                                    </p>
+                                    <field name="odoogpt_openai_api_key" class="w-100" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="odoogpt_openai_parameters">
+                        <h2>OpenAI Parameters</h2>
+
+                        <div class="row mt16 o_settings_container" name="odoogpt_openai_parameters_container">
+                            <div class="col-12 col-lg-6 o_setting_box" id="odoogpt_openai_model">
+                                <div class="o_setting_left_pane">
+                                </div>
+                                <div class="o_setting_right_pane">
+                                    <p class="mb-0">
+                                        <label for="odoogpt_openai_model" />
+                                    </p>
+                                    <field name="odoogpt_openai_model" />
+                                </div>
+                            </div>
+                            <div class="col-12 col-lg-6 o_setting_box" id="odoogpt_openai_max_tokens">
+                                <div class="o_setting_left_pane">
+                                </div>
+                                <div class="o_setting_right_pane">
+                                    <p class="mb-0">
+                                        <label for="odoogpt_openai_max_tokens" />
+                                    </p>
+                                    <field name="odoogpt_openai_max_tokens" />
+                                </div>
+                            </div>
+                            <div class="col-12 col-lg-6 o_setting_box" id="odoogpt_openai_temperature">
+                                <div class="o_setting_left_pane">
+                                </div>
+                                <div class="o_setting_right_pane">
+                                    <p class="mb-0">
+                                        <label for="odoogpt_openai_temperature" />
+                                    </p>
+                                    <field name="odoogpt_openai_temperature" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>
