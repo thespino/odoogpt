@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="odoogpt_openai_model_select_wizard_view" model="ir.ui.view">
+            <field name="name">odoogpt.openai.model.select.wizard.view</field>
+            <field name="model">odoogpt.openai.model.select.wizard</field>
+            <field name="arch" type="xml">
+                <form name="odoogpt_openai_model_select_wizard" string="Pick OpenAI Model">
+                    <sheet>
+                        <group colspan="2">
+                            <field name="odoogpt_openai_model" options="{'no_open': True, 'no_create': True, 'no_quick_create': True}" />
+                        </group>
+                    </sheet>
+                    <footer>
+                        <button string="Select" class="btn btn-primary" type="object" name="action_ok" data-hotkey="y" />
+                        <button string="Cancel" class="btn-secondary" special="cancel" data-hotkey="n" />
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <record id="odoogpt_openai_model_select_wizard_act_window" model="ir.actions.act_window">
+            <field name="name">OdooGPT OpenAI Select Model</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">odoogpt.openai.model.select.wizard</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+    </data>
+</odoo>
