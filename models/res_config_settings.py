@@ -43,6 +43,7 @@ class ResConfigSettings(models.TransientModel):
         readonly=False,
     )
 
+
     odoogpt_openai_prompt_prefix = fields.Char(
         string='OpenAI Prompt prefix',
         help="""Prefix to send to all OpenAI Completition Api requests""",
