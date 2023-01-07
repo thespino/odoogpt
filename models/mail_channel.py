@@ -15,7 +15,7 @@ class MailChannel(models.Model):
         partner = self.env.user.partner_id
         body = kwargs.get('body', '').strip()
 
-        # try:
+        try:
         if not body or body == COMMAND_AI or not body.startswith(COMMAND_AI):
             msg = _('Ask something to the AI by simply typing "/ai "followed by the prompt. For example "/ai What is Odoo?"')
         else:
@@ -23,10 +23,17 @@ class MailChannel(models.Model):
                 partner=partner,
                 prompt=html2plaintext(body[len(COMMAND_AI):]).strip()
             )
-        # except:
-        #     msg = _('Oops! Something went wrong!')
+        except:
+            msg = _('Oops! Something went wrong!')
 
-        self._send_transient_message(partner, msg)
+        # Send message with SuperUser (OdooBot)
+        odoobot_id = self.env['ir.model.data']._xmlid_to_res_id("base.partner_root")
+        self.with_context(mail_create_nosubscribe=True).sudo().message_post(
+            body=msg,
+            author_id=odoobot_id,
+            message_type='comment',
+            subtype_xmlid='mail.mt_comment'
+        )
 
 
     def _execute_command_ai(self, partner, prompt):
