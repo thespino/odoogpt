@@ -14,9 +14,6 @@ class ResCompany(models.Model):
         required=False,
     )
 
-    # TODO: Consider adding the List Models endpoint to show a 
-    #       selector instead of simple text: 
-    #       https://beta.openai.com/docs/api-reference/models/list
     odoogpt_openai_model = fields.Char(
         string='OpenAI Model',
         help="""Open AI Model to use: https://beta.openai.com/docs/models/overview""",
