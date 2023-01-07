@@ -38,7 +38,7 @@ class MailChannel(models.Model):
 
     def _execute_command_ai(self, partner, prompt):
         response = self.env['odoogpt.openai.utils'].completition_create(
-            prompt=_('In Odoo: {0}').format(prompt)
+            prompt=self._execute_command_ai__build_prompt(prompt)
         )
 
         return _("""{0} asked <i>\"{1}\"</i> <br /> {2}""").format(
@@ -47,6 +47,13 @@ class MailChannel(models.Model):
             plaintext2html(response)
         )
 
+    def _execute_command_ai__build_prompt(self, prompt):
+        """Build the message to send to OpenAI Completition api"""
+        return '{0}{1}{2}'.format(
+            self.env.company.odoogpt_openai_prompt_prefix or '',
+            prompt,
+            self.env.company.odoogpt_openai_prompt_suffix or ''
+        )
 
 
     # UTILS
