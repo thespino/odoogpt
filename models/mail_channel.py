@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 from odoo import models, _
-from odoo.tools import html2plaintext
+from odoo.tools import html2plaintext, plaintext2html
 
 COMMAND_AI = '/ai'
 
@@ -16,13 +16,13 @@ class MailChannel(models.Model):
         body = kwargs.get('body', '').strip()
 
         try:
-        if not body or body == COMMAND_AI or not body.startswith(COMMAND_AI):
-            msg = _('Ask something to the AI by simply typing "/ai "followed by the prompt. For example "/ai What is Odoo?"')
-        else:
-            msg = self._execute_command_ai(
-                partner=partner,
-                prompt=html2plaintext(body[len(COMMAND_AI):]).strip()
-            )
+            if not body or body == COMMAND_AI or not body.startswith(COMMAND_AI):
+                msg = _('Ask something to the AI by simply typing "/ai "followed by the prompt. For example "/ai What is Odoo?"')
+            else:
+                msg = self._execute_command_ai(
+                    partner=partner,
+                    prompt=html2plaintext(body[len(COMMAND_AI):]).strip()
+                )
         except:
             msg = _('Oops! Something went wrong!')
 
@@ -44,7 +44,7 @@ class MailChannel(models.Model):
         return _("""{0} asked <i>\"{1}\"</i> <br /> {2}""").format(
             self._ping_partners(partner),
             prompt,
-            response
+            plaintext2html(response)
         )
 
 
