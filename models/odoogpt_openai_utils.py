@@ -28,7 +28,28 @@ class OdoogptOpenaiUtils(models.AbstractModel):
             params[PARAM[1]] = self.env.company[PARAM[0]]
 
         return params
-    
+
+
+    # MODELS =============================================================================
+
+    def _models_list__get_parameters(self):
+        """Get params to pass to openai library to make a successful request"""
+        return self._odoogpt_get_parameters([
+            # Odoo name, OpenAI name
+            ('odoogpt_openai_api_key', 'api_key'),
+        ])
+
+    def models_list(self, **kwargs):
+        """List available Models. Ref. https://beta.openai.com/docs/api-reference/models/list"""
+        response = openai.Model.list(
+            **{
+                **self._models_list__get_parameters(),
+                **kwargs,
+            }
+        )
+
+        return response['data']
+
 
     # COMPLETITION =======================================================================
 
