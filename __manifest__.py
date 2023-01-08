@@ -26,8 +26,6 @@
         'views/odoogpt_openai_interaction.xml',
 
         'wizard/odoogpt_openai_model_select_wizard.xml',
-
-        'views/menu.xml',
     ],
 
     'assets': {
