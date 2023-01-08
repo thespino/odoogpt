@@ -2,20 +2,20 @@
 <odoo>
     <data>
 
-        <record id="odoogpt_openai_interaction_view_list" model="ir.ui.view">
-            <field name="name">odoogpt.openai.interaction.view.list</field>
-            <field name="model">odoogpt.openai.interaction</field>
+        <record id="odoogpt_openai_log_view_list" model="ir.ui.view">
+            <field name="name">odoogpt.openai.log.view.list</field>
+            <field name="model">odoogpt.openai.log</field>
             <field name="arch" type="xml">
-                <tree name="odoogpt_openai_model_tree" string="OdooGTP OpenAI Interactions" create="0" edit="0">
+                <tree name="odoogpt_openai_model_tree" string="OdooGTP OpenAI Logs" create="0" edit="0">
                     <field name="prompt" />
                     <field name="response" optional="hide" />
                 </tree>
             </field>
         </record>
 
-        <record id="odoogpt_openai_interaction_view_form" model="ir.ui.view">
-            <field name="name">odoogpt.openai.interaction.view.form</field>
-            <field name="model">odoogpt.openai.interaction</field>
+        <record id="odoogpt_openai_log_view_form" model="ir.ui.view">
+            <field name="name">odoogpt.openai.log.view.form</field>
+            <field name="model">odoogpt.openai.log</field>
             <field name="arch" type="xml">
                 <form name="odoogpt_openai_model_form" create="0" edit="0">
                     <sheet>
@@ -34,10 +34,10 @@
         </record>
 
 
-        <record id="odoogpt_openai_interaction_act_window" model="ir.actions.act_window">
-            <field name="name">OdooGPT OpenAI Interactions</field>
+        <record id="odoogpt_openai_log_act_window" model="ir.actions.act_window">
+            <field name="name">OdooGPT OpenAI Logs</field>
             <field name="type">ir.actions.act_window</field>
-            <field name="res_model">odoogpt.openai.interaction</field>
+            <field name="res_model">odoogpt.openai.log</field>
             <field name="view_mode">tree,form</field>
             <field name="target">current</field>
         </record>

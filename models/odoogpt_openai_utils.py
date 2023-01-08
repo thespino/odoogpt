@@ -72,8 +72,8 @@ class OdoogptOpenaiUtils(models.AbstractModel):
             }
         )
 
-        # Log interaction
-        self.env['odoogpt.openai.interaction'].sudo().create({
+        # Log
+        self.env['odoogpt.openai.log'].sudo().create({
             'prompt': prompt,
             'response_raw': str(response),
             'response': response['choices'][0]['text'],
