@@ -27,7 +27,7 @@
                             <label />
                             <field name="response" nolabel="1" />
                         </group>
-                        <group colspan="2" string="Raw Response">
+                        <group colspan="2" string="Raw Respoinse">
                             <label />
                             <field name="response_raw" class="font-monospace" nolabel="1" />
                         </group>
