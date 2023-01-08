@@ -74,9 +74,11 @@ class OdoogptOpenaiUtils(models.AbstractModel):
 
         # Log
         self.env['odoogpt.openai.log'].sudo().create({
-            'prompt': prompt,
-            'response_raw': str(response),
-            'response': response['choices'][0]['text'],
+            'type': 'completition',
+            'raw_request': prompt,
+            'parsed_request': prompt,
+            'raw_response': str(response),
+            'parsed_response': response['choices'][0]['text'],
         })
 
         return response['choices'][0]['text']
