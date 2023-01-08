@@ -39,5 +39,15 @@
             <field name="view_mode">tree,form</field>
             <field name="target">current</field>
         </record>
+
+
+        <record id="odoogpt_openai_model_refresh_from_api_act_server" model="ir.actions.server">
+            <field name="name">OdooGPT Refresh OpenAI Models</field>
+            <field name="model_id" ref="odoogpt.model_odoogpt_openai_model"/>
+            <field name="state">code</field>
+            <field name="code">
+model.odoogpt_openai_model_refresh_from_api()
+            </field>
+        </record>
     </data>
 </odoo>

@@ -22,6 +22,21 @@
                 groups="base.group_erp_manager"
                 sequence="15"
             />
+
+            <menuitem
+                id="odoogpt_settings_actions_menu"
+                name="Actions"
+                groups="base.group_erp_manager"
+                sequence="50"
+            >
+                <menuitem
+                    id="odoogpt_settings_actions_refresh_models_menu"
+                    name="Refresh OpenAI Models"
+                    action="odoogpt_openai_model_refresh_from_api_act_server"
+                    groups="base.group_erp_manager"
+                    sequence="10"
+                />
+            </menuitem>
         </menuitem>
 
     </data>
