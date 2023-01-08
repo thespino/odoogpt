@@ -26,8 +26,8 @@ class OdoogptOpenaiModel(models.Model):
         default=False,
     )
 
-    openai_permissions = fields.Json(
-        string='OpenAI permissions',
+    openai_permission = fields.Json(
+        string='OpenAI permission',
         required=False,
         default=False,
     )
