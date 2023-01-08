@@ -23,7 +23,6 @@
 
         'views/res_config_settings.xml',
         'views/odoogpt_openai_model.xml',
-        'views/odoogpt_openai_interaction.xml',
 
         'wizard/odoogpt_openai_model_select_wizard.xml',
     ],
