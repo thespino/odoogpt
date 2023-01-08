@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 from odoo import models, _
-from odoo.exceptions import UserError
+from odoo.exceptions import ValidationError
 import openai
 
 
@@ -17,7 +17,7 @@ class OdoogptOpenaiUtils(models.AbstractModel):
         if self.env.company.odoogpt_openai_api_key:
             return self.env.company.odoogpt_openai_api_key
         if raise_err:
-            raise UserError(_('OpenAI Api Token not set in settings!'))
+            raise ValidationError(_('OpenAI Api Token not set in settings!'))
         else:
             return False
 

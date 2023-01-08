@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 
 from odoo import models, fields, api, _
+from odoo.exceptions import ValidationError
 import json
 
 
@@ -63,27 +64,15 @@ class OdoogptOpenaiModel(models.Model):
         # TODO: Check what to do with unlinking of inexistent model. Maybe we
         #       can keep them.
         OdoogptOpenaiUtils = self.env['odoogpt.openai.utils']
-        
+
         # Check and get OpenAI Api Key
-        api_key = OdoogptOpenaiUtils._odoogpt_check_api_key(raise_err=False)
-        if not api_key:
-            return {
-                'warning': {
-                    'title': _('Missing OpenAI api key'),
-                    'message': _('You need to specify the OpenAI api key first!'),
-                }
-            }
+        api_key = OdoogptOpenaiUtils._odoogpt_check_api_key(raise_err=True)
 
         # Get Models from OpenAI
         openai_models = OdoogptOpenaiUtils.models_list(api_key=api_key)
 
         if not openai_models and not len(openai_models):
-            return {
-                'warning': {
-                    'title': _('No Models'),
-                    'message': _('No Models found from OpenAI api'),
-                }
-            }
+            raise ValidationError(_('No Models found from OpenAI api'))
 
         # Store/update models in our database
         odoogpt_models = self._get_models_as_dict()
@@ -109,7 +98,7 @@ class OdoogptOpenaiModel(models.Model):
         # Return
         if format == 'dict':
             return odoogpt_models
-        else:   # formt == 'model' or anything else
+        else:   # format == 'model' or anything else
             ret = self
             for model in odoogpt_models.values():
                 ret += model
