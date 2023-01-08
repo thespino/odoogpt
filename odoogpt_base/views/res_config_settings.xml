@@ -30,7 +30,9 @@
                                             <a href="https://beta.openai.com/account/api-keys" target="_blank">https://beta.openai.com/account/api-keys</a>. <br/>
                                             Please keep it secret safe!
                                         </p>
-                                        <field name="odoogpt_openai_api_key" class="w-100" />
+                                        <field name="odoogpt_openai_api_key" class="w-75" />
+
+                                        <button name="odoogpt_openai_test" type="object" string="Test" />
                                     </div>
                                 </div>
                             </div>
