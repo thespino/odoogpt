@@ -1,0 +1,28 @@
+<odoo>
+    <data>
+
+        <menuitem
+            id="odoogpt_settings_menu"
+            name="OdooGPT"
+            groups="base.group_erp_manager"
+            parent="base.menu_administration"
+            sequence="40"
+        >
+            <menuitem
+                id="odoogpt_settings_models_menu"
+                name="OpenAI Models"
+                action="odoogpt_openai_model_act_window"
+                groups="base.group_erp_manager"
+                sequence="10"
+            />
+            <menuitem
+                id="odoogpt_settings_interactions_menu"
+                name="OpenAI Interactions"
+                action="odoogpt_openai_interaction_act_window"
+                groups="base.group_erp_manager"
+                sequence="15"
+            />
+        </menuitem>
+
+    </data>
+</odoo>
