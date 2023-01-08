@@ -16,9 +16,9 @@
                 sequence="10"
             />
             <menuitem
-                id="odoogpt_settings_interactions_menu"
-                name="OpenAI Interactions"
-                action="odoogpt_openai_interaction_act_window"
+                id="odoogpt_settings_logs_menu"
+                name="OpenAI Logs"
+                action="odoogpt_openai_log_act_window"
                 groups="base.group_erp_manager"
                 sequence="15"
             />

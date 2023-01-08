@@ -3,9 +3,9 @@
 from odoo import models, fields, _
 
 
-class OdoogptOpenaiInteraction(models.Model):
-    _name = 'odoogpt.openai.interaction'
-    _description = 'OdooGPT OpenAI Interaction'
+class OdoogptOpenaiLog(models.Model):
+    _name = 'odoogpt.openai.log'
+    _description = 'OdooGPT OpenAI Log'
     _rec_name = 'prompt'
 
 
