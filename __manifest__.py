@@ -4,7 +4,7 @@
     'summary': 'Make OdooBot finally useful',
     'description': """Make OdooBot useful by adding GPT intelligence 🧠""",
     'license': 'LGPL-3',
-    'version': '0.0.5',
+    'version': '0.0.4',
     'category': 'Productivity/Discuss',
     'author': 'thespino',
     'website': 'https://github.com/thespino',
