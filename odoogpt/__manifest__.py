@@ -10,24 +10,12 @@
     'website': 'https://github.com/thespino',
 
     'depends': [
+        'odoogpt_base',
         'mail_bot',
     ],
-    'external_dependencies': {
-        'python': [
-            'openai'
-        ]
-    },
 
     'data': [
-        'security/ir.model.access.csv',
-
         'views/res_config_settings.xml',
-        'views/odoogpt_openai_model.xml',
-        'views/odoogpt_openai_log.xml',
-
-        'wizard/odoogpt_openai_model_select_wizard.xml',
-
-        'views/menu.xml',
     ],
 
     'assets': {

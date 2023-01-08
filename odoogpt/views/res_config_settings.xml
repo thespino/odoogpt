@@ -5,113 +5,44 @@
         <record id="odoogpt_res_config_settings_view_form" model="ir.ui.view">
             <field name="name">res.config.settings.view.form.odoogpt</field>
             <field name="model">res.config.settings</field>
-            <field name="priority" eval="0" />
-            <field name="inherit_id" ref="base.res_config_settings_view_form" />
+            <field name="inherit_id" ref="odoogpt_base.odoogpt_base_res_config_settings_view_form" />
             <field name="arch" type="xml">
-                <xpath expr="//div[hasclass('settings')]" position="inside">
-                    <div
-                        class="app_settings_block"
-                        data-string="Odoo GPT"
-                        string="Odoo GPT"
-                        data-key="odoogpt"
-                    >
-                        <div id="odoogpt_openai_api">
-                            <h2>OpenAI Api</h2>
+                <xpath expr="//div[@id='odoogpt_openai_parameters']" position="after">
+                    <div id="odoogpt_chat_customization">
+                        <h2>OdooGPT Chat Customization</h2>
 
-                            <div class="row mt16 o_settings_container" name="odoogpt_openai_api_container">
-                                <div class="col-12 col-lg-6 o_setting_box" id="odoogpt_openai_api_key">
-                                    <div class="o_setting_left_pane">
-                                    </div>
-                                    <div class="o_setting_right_pane">
-                                        <p class="mb-0">
-                                            <label for="odoogpt_openai_api_key" />
-                                        </p>
-                                        <p class="mb16 text-muted">
-                                            Insert your OpenAI Api token. It can be found at 
-                                            <a href="https://beta.openai.com/account/api-keys" target="_blank">https://beta.openai.com/account/api-keys</a>. <br/>
-                                            Please keep it secret safe!
-                                        </p>
-                                        <field name="odoogpt_openai_api_key" class="w-100" />
-                                    </div>
+                        <div class="row mt16 o_settings_container" name="odoogpt_chat_customization_container">
+                            <div class="col-12 col-lg-6 o_setting_box" id="odoogpt_openai_prompt_prefix">
+                                <div class="o_setting_left_pane">
+                                </div>
+                                <div class="o_setting_right_pane">
+                                    <p class="mb-0">
+                                        <label for="odoogpt_openai_prompt_prefix" />
+                                    </p>
+                                    <p class="mb16 text-muted">
+                                        The prefix is added to all prompts sent to OpenAI. 
+                                        That's useful to scope requests. <br/>
+                                        For example, an input of <i>"How to create a Product?"</i> 
+                                        won't give useful answers. But if you prefix it with 
+                                        <i>"In Odoo: "</i>, the AI can correctly scope the question.
+                                    </p>
+                                    <field name="odoogpt_openai_prompt_prefix" class="w-75" />
                                 </div>
                             </div>
-                        </div>
-
-                        <div id="odoogpt_openai_parameters">
-                            <h2>OpenAI Parameters</h2>
-
-                            <div class="row mt16 o_settings_container" name="odoogpt_openai_parameters_container">
-                                <div class="col-12 col-lg-6 o_setting_box" id="odoogpt_openai_model">
-                                    <div class="o_setting_left_pane">
-                                    </div>
-                                    <div class="o_setting_right_pane">
-                                        <p class="mb-0">
-                                            <label for="odoogpt_openai_model" />
-                                        </p>
-                                        <field name="odoogpt_openai_model" />
-                                        
-                                        <button name="odoogpt_openai_model_select_from_db" type="object" string="Pick Model..." />
-                                    </div>
+                            <div class="col-12 col-lg-6 o_setting_box" id="odoogpt_openai_prompt_suffix">
+                                <div class="o_setting_left_pane">
                                 </div>
-                                <div class="col-12 col-lg-6 o_setting_box" id="odoogpt_openai_max_tokens">
-                                    <div class="o_setting_left_pane">
-                                    </div>
-                                    <div class="o_setting_right_pane">
-                                        <p class="mb-0">
-                                            <label for="odoogpt_openai_max_tokens" />
-                                        </p>
-                                        <field name="odoogpt_openai_max_tokens" />
-                                    </div>
-                                </div>
-                                <div class="col-12 col-lg-6 o_setting_box" id="odoogpt_openai_temperature">
-                                    <div class="o_setting_left_pane">
-                                    </div>
-                                    <div class="o_setting_right_pane">
-                                        <p class="mb-0">
-                                            <label for="odoogpt_openai_temperature" />
-                                        </p>
-                                        <field name="odoogpt_openai_temperature" />
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div id="odoogpt_customization">
-                            <h2>OdooGPT Customization</h2>
-
-                            <div class="row mt16 o_settings_container" name="odoogpt_customization_container">
-                                <div class="col-12 col-lg-6 o_setting_box" id="odoogpt_openai_prompt_prefix">
-                                    <div class="o_setting_left_pane">
-                                    </div>
-                                    <div class="o_setting_right_pane">
-                                        <p class="mb-0">
-                                            <label for="odoogpt_openai_prompt_prefix" />
-                                        </p>
-                                        <p class="mb16 text-muted">
-                                            The prefix is added to all prompts sent to OpenAI. 
-                                            That's useful to scope requests. <br/>
-                                            For example, an input of <i>"How to create a Product?"</i> 
-                                            won't give useful answers. But if you prefix it with 
-                                            <i>"In Odoo: "</i>, the AI can correctly scope the question.
-                                        </p>
-                                        <field name="odoogpt_openai_prompt_prefix" class="w-75" />
-                                    </div>
-                                </div>
-                                <div class="col-12 col-lg-6 o_setting_box" id="odoogpt_openai_prompt_suffix">
-                                    <div class="o_setting_left_pane">
-                                    </div>
-                                    <div class="o_setting_right_pane">
-                                        <p class="mb-0">
-                                            <label for="odoogpt_openai_prompt_suffix" />
-                                        </p>
-                                        <p class="mb16 text-muted">
-                                            The suffix is added to all prompts sent to OpenAI. It 
-                                            can be used to be more specific on stuff or better scope 
-                                            questions. Although, we recommend using prefix instead 
-                                            of suffix.
-                                        </p>
-                                        <field name="odoogpt_openai_prompt_suffix" class="w-75" />
-                                    </div>
+                                <div class="o_setting_right_pane">
+                                    <p class="mb-0">
+                                        <label for="odoogpt_openai_prompt_suffix" />
+                                    </p>
+                                    <p class="mb16 text-muted">
+                                        The suffix is added to all prompts sent to OpenAI. It 
+                                        can be used to be more specific on stuff or better scope 
+                                        questions. Although, we recommend using prefix instead 
+                                        of suffix.
+                                    </p>
+                                    <field name="odoogpt_openai_prompt_suffix" class="w-75" />
                                 </div>
                             </div>
                         </div>
