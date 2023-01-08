@@ -131,13 +131,13 @@ class ResConfigSettings(models.TransientModel):
             if odoogpt_model:
                 odoogpt_model.write({
                     'openai_owned_by': openai_model.get('owned_by', odoogpt_model.openai_owned_by),
-                    'openai_permissions': openai_model.get('permissions', odoogpt_model.openai_permissions),
+                    'openai_permission': openai_model.get('permission', odoogpt_model.openai_permission),
                 })
             elif openai_model.get('id'):
                 odoogpt_model = OdoogptOpenaiModel.create({
                     'openai_id': openai_model.get('id'),
                     'openai_owned_by': openai_model.get('owned_by'),
-                    'openai_permissions': openai_model.get('permissions'),
+                    'openai_permission': openai_model.get('permission'),
                 })
 
                 odoogpt_models[odoogpt_model.openai_id] = odoogpt_model

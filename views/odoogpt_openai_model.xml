@@ -24,7 +24,7 @@
                             <field name="openai_owned_by" />
                         </group>
                         <group colspan="2">
-                            <field name="openai_permissions" />
+                            <field name="openai_permission" />
                         </group>
                     </sheet>
                 </form>
