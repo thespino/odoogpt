@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 from odoo import models, fields, api, _
-from odoo.exceptions import ValidationError
+from odoo.exceptions import ValidationError, UserError
 import json
 
 
@@ -69,7 +69,10 @@ class OdoogptOpenaiModel(models.Model):
         api_key = OdoogptOpenaiUtils._odoogpt_check_api_key(raise_err=True)
 
         # Get Models from OpenAI
-        openai_models = OdoogptOpenaiUtils.models_list(api_key=api_key)
+        try:
+            openai_models = OdoogptOpenaiUtils.models_list(api_key=api_key)
+        except Exception as ex:
+            raise UserError(ex)
 
         if not openai_models and not len(openai_models):
             raise ValidationError(_('No Models found from OpenAI api'))
