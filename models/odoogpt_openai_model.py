@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
 
 from odoo import models, fields, api, _
-import json
 
 
 class OdoogptOpenaiModel(models.Model):
@@ -32,21 +31,6 @@ class OdoogptOpenaiModel(models.Model):
         required=False,
         default=False,
     )
-    openai_permissions_string = fields.Text(
-        string='OpenAI permissions',
-        required=False,
-        default=False,
-        store=False,
-        compute='_compute_openai_permissions_string'
-    )
-
-
-    def _compute_openai_permissions_string(self):
-        for openai_model in self:
-            openai_model.openai_permissions_string = json.dumps(
-                self.openai_permissions or {},
-                indent=4
-            )
 
 
     # UTILS
