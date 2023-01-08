@@ -6,6 +6,7 @@ from odoo import models, fields, _
 class OdoogptOpenaiInteraction(models.Model):
     _name = 'odoogpt.openai.interaction'
     _description = 'OdooGPT OpenAI Interaction'
+    _rec_name = 'prompt'
 
 
     prompt = fields.Text(
