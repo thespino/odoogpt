@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 
 from odoo import models, fields, api, _
+from odoo.exceptions import UserError
 
 
 class ResConfigSettings(models.TransientModel):
@@ -62,6 +63,25 @@ class ResConfigSettings(models.TransientModel):
             odoogpt_openai_temperature = self.env.company.odoogpt_openai_temperature
         )
         return res
+
+
+    def odoogpt_openai_test(self):
+        """Call Models list api to check everything is properly set up"""
+        OdoogptOpenaiUtils = self.env['odoogpt.openai.utils']
+        try:
+            OdoogptOpenaiUtils.models_list()
+        except Exception as ex:
+            raise UserError(ex)
+
+        return {
+            'type': 'ir.actions.client',
+            'tag': 'display_notification',
+            'params': {
+                'title': _('Test success!'),
+                'message': _('Everything properly set up! You\'re good to go!'),
+                'sticky': False,
+            }
+        }
 
 
     def odoogpt_openai_model_select_from_db(self):
