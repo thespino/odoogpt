@@ -67,4 +67,4 @@ class ResConfigSettings(models.TransientModel):
     def odoogpt_openai_model_select_from_db(self):
         """Get Models from OpenAI api and show selector wizart"""
         self.env['odoogpt.openai.model'].sudo().odoogpt_openai_model_refresh_from_api(format='model')
-        return self.env.ref('odoogpt.odoogpt_openai_model_select_wizard_act_window').read()[0]
+        return self.env.ref('odoogpt_base.odoogpt_openai_model_select_wizard_act_window').read()[0]
