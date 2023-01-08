@@ -7,8 +7,9 @@
             <field name="model">odoogpt.openai.log</field>
             <field name="arch" type="xml">
                 <tree name="odoogpt_openai_model_tree" string="OdooGTP OpenAI Logs" create="0" edit="0">
-                    <field name="prompt" />
-                    <field name="response" optional="hide" />
+                    <field name="type" />
+                    <field name="parsed_request" optional="hide" />
+                    <field name="parsed_response" optional="hide" />
                 </tree>
             </field>
         </record>
@@ -19,14 +20,36 @@
             <field name="arch" type="xml">
                 <form name="odoogpt_openai_model_form" create="0" edit="0">
                     <sheet>
-                        <group colspan="2" cols="1" string="Prompt">
-                            <field name="prompt" nolabel="1" colspan="2" />
+                        <group colspan="2" >
+                            <field name="type" />
                         </group>
-                        <group colspan="2" cols="1" string="Answer/Response">
-                            <field name="response" nolabel="1" colspan="2" />
+
+                        <group colspan="2" cols="1" string="Request">
+                            <div colspan="2">
+                                <div>
+                                    <label for="raw_request" />
+                                </div>
+                                <field name="raw_request" nolabel="1" class="font-monospace" />
+    
+                                <div>
+                                    <label for="parsed_request" />
+                                </div>
+                                <field name="parsed_request" nolabel="1" />
+                            </div>
                         </group>
-                        <group colspan="2" cols="1" string="Raw Response">
-                            <field name="response_raw" class="font-monospace" nolabel="1" colspan="2" />
+                        
+                        <group colspan="2" cols="1" string="Response">
+                            <div colspan="2">
+                                <div>
+                                    <label for="raw_response" />
+                                </div>
+                                <field name="raw_response" nolabel="1" class="font-monospace" />
+    
+                                <div>
+                                    <label for="parsed_response" />
+                                </div>
+                                <field name="parsed_response" nolabel="1" />
+                            </div>
                         </group>
                     </sheet>
                 </form>
