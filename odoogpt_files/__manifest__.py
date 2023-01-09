@@ -15,6 +15,10 @@
 
     'data': [
         'security/ir.model.access.csv',
+
+        'views/odoogpt_openai_file.xml',
+
+        'views/menu.xml',
     ],
 
     'installable': True,

@@ -1,0 +1,28 @@
+<odoo>
+    <data>
+
+        <menuitem
+            id="odoogpt_settings_files_menu"
+            name="OpenAI Files"
+            groups="base.group_erp_manager"
+            parent="odoogpt_base.odoogpt_settings_menu"
+            sequence="30"
+        >
+            <menuitem
+                id="odoogpt_settings_files_file_menu"
+                name="OpenAI Files"
+                action="odoogpt_openai_file_act_window"
+                groups="base.group_erp_manager"
+                sequence="10"
+            />
+            <menuitem
+                id="odoogpt_settings_actions_refresh_file_menu"
+                name="Refresh OpenAI Files"
+                action="odoogpt_openai_file_refresh_from_api_act_server"
+                groups="base.group_erp_manager"
+                sequence="15"
+            />
+        </menuitem>
+
+    </data>
+</odoo>
