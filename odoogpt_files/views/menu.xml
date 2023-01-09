@@ -16,7 +16,7 @@
                 sequence="10"
             />
             <menuitem
-                id="odoogpt_settings_actions_refresh_file_menu"
+                id="odoogpt_settings_files_refresh_file_menu"
                 name="Refresh OpenAI Files"
                 action="odoogpt_openai_file_refresh_from_api_act_server"
                 groups="base.group_erp_manager"
