@@ -1,4 +1,4 @@
-# odoogpt
+# odoogpt_files
 
 Manage OpenAI Files
 
