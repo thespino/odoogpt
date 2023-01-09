@@ -34,6 +34,19 @@ class OdoogptOpenaiFile(models.Model):
     )
 
 
+    def delete_from_api(self):
+        OdoogptOpenaiUtils = self.env['odoogpt.openai.utils']
+        try:
+            for file in self:
+                OdoogptOpenaiUtils.files_delete(file.openai_id)
+                file.unlink()
+        except Exception as ex:
+            raise UserError(ex)
+
+        action = self.env.ref('odoogpt_files.odoogpt_openai_file_act_window').read()[0]
+        return action
+
+
     # UTILS
     def _get_as_dict(self, domain=[]):
         """Get all records in a dict format (openai_id: record)"""

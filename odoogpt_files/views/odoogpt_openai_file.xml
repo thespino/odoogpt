@@ -18,6 +18,14 @@
             <field name="model">odoogpt.openai.file</field>
             <field name="arch" type="xml">
                 <form name="odoogpt_openai_file_form" create="0" edit="0">
+                    <header>
+                        <button 
+                            string="Delete from OpenAI"
+                            name="delete_from_api"
+                            type="object"
+                            confirm="Are you sure you want to continue? This will definetely delete the file from OpenAI and Odoo!"
+                        />
+                    </header>
                     <sheet>
                         <group colspan="2">
                             <field name="openai_id" />
@@ -45,6 +53,16 @@
             <field name="state">code</field>
             <field name="code">
 model.refresh_from_api()
+            </field>
+        </record>
+
+        <record id="odoogpt_openai_file_delete_from_api_act_server" model="ir.actions.server">
+            <field name="name">Delete from OpenAI</field>
+            <field name="model_id" ref="odoogpt_files.model_odoogpt_openai_file"/>
+            <field name="binding_model_id" ref="odoogpt_files.model_odoogpt_openai_file"/>
+            <field name="state">code</field>
+            <field name="code">
+action = records.delete_from_api()
             </field>
         </record>
     </data>
