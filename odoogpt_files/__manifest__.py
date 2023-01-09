@@ -18,6 +18,8 @@
 
         'views/odoogpt_openai_file.xml',
 
+        'wizard/odoogpt_openai_file_create_wizard.xml',
+
         'views/menu.xml',
     ],
 
