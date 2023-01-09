@@ -60,7 +60,7 @@ class OdoogptOpenaiFile(models.Model):
             raise ValidationError(_('No Files found from OpenAI api'))
 
         # Store/update models in our database
-        odoogpt_records = self._get_models_as_dict()
+        odoogpt_records = self._get_as_dict()
         for openai_record in openai_records:
             if openai_record.get('object', '') != 'file':
                 continue
