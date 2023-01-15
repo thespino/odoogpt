@@ -1,0 +1,28 @@
+<odoo>
+    <data>
+
+        <menuitem
+            id="odoogpt_settings_fine_tune_menu"
+            name="OpenAI Fine Tunes"
+            groups="base.group_erp_manager"
+            parent="odoogpt_base.odoogpt_settings_menu"
+            sequence="40"
+        >
+            <menuitem
+                id="odoogpt_settings_fine_tune_fine_tune_menu"
+                name="OpenAI Fine Tunes"
+                action="odoogpt_openai_fine_tune_act_window"
+                groups="base.group_erp_manager"
+                sequence="10"
+            />
+            <menuitem
+                id="odoogpt_settings_fine_tune_refresh_fine_tune_menu"
+                name="Refresh OpenAI Fine Tunes"
+                action="odoogpt_openai_fine_tune_refresh_from_api_act_server"
+                groups="base.group_erp_manager"
+                sequence="15"
+            />
+        </menuitem>
+
+    </data>
+</odoo>
