@@ -22,6 +22,13 @@
                 groups="base.group_erp_manager"
                 sequence="15"
             />
+            <menuitem
+                id="odoogpt_settings_fine_tune_create_fine_tune_menu"
+                name="Create OpenAI Fine Tune"
+                action="odoogpt_openai_fine_tune_create_wizard_act_window"
+                groups="base.group_erp_manager"
+                sequence="20"
+            />
         </menuitem>
 
     </data>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="odoogpt_openai_fine_tune_create_wizard_view" model="ir.ui.view">
+            <field name="name">odoogpt.openai.fine.tune.create.wizard.view</field>
+            <field name="model">odoogpt.openai.fine.tune.create.wizard</field>
+            <field name="arch" type="xml">
+                <form name="odoogpt_openai_fine_tunecreate_wizard" string="Create OpenAI Fine Tune">
+                    <sheet>
+                        <group colspan="2">
+                            <field name="training_file" />
+                            <field name="validation_file" />
+                            <field name="model" />
+                            <field name="suffix" />
+                        </group>
+                    </sheet>
+                    <footer>
+                        <button string="Create" class="btn btn-primary" type="object" name="action_ok" data-hotkey="y" />
+                        <button string="Cancel" class="btn-secondary" special="cancel" data-hotkey="n" />
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <record id="odoogpt_openai_fine_tune_create_wizard_act_window" model="ir.actions.act_window">
+            <field name="name">OdooGPT OpenAI Create Fine Tune</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">odoogpt.openai.fine.tune.create.wizard</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+    </data>
+</odoo>
