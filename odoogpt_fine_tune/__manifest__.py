@@ -19,6 +19,8 @@
 
         'views/odoogpt_openai_fine_tune.xml',
 
+        'wizard/odoogpt_openai_fine_tune_create_wizard.xml',
+
         'views/menu.xml',
     ],
 
