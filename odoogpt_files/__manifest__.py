@@ -4,7 +4,7 @@
     'summary': 'Manage OpenAI Files',
     'description': """Manage OpenAI Files""",
     'license': 'LGPL-3',
-    'version': '0.0.1',
+    'version': '0.0.2',
     'category': 'Productivity',
     'author': 'thespino',
     'website': 'https://github.com/thespino',
