@@ -22,30 +22,30 @@ class OdoogptOpenaiModel(models.Model):
         index=True,
     )
 
-    openai_owned_by = fields.Char(
+    owned_by = fields.Char(
         string='OpenAI Owned by',
         required=False,
         default=False,
     )
 
-    openai_permission = fields.Json(
+    permission = fields.Json(
         string='OpenAI permission',
         required=False,
         default=False,
     )
-    openai_permission_string = fields.Text(
+    permission_string = fields.Text(
         string='OpenAI permission',
         required=False,
         default=False,
         store=False,
-        compute='_compute_openai_permission_string'
+        compute='_compute_permission_string'
     )
 
 
-    def _compute_openai_permission_string(self):
+    def _compute_permission_string(self):
         for openai_model in self:
-            openai_model.openai_permission_string = json.dumps(
-                self.openai_permission or {},
+            openai_model.permission_string = json.dumps(
+                self.permission or {},
                 indent=4
             )
 
@@ -86,14 +86,14 @@ class OdoogptOpenaiModel(models.Model):
             odoogpt_model = odoogpt_models.get(openai_model['id'])
             if odoogpt_model:
                 odoogpt_model.write({
-                    'openai_owned_by': openai_model.get('owned_by', odoogpt_model.openai_owned_by),
-                    'openai_permission': openai_model.get('permission', odoogpt_model.openai_permission),
+                    'owned_by': openai_model.get('owned_by', odoogpt_model.owned_by),
+                    'permission': openai_model.get('permission', odoogpt_model.permission),
                 })
             elif openai_model.get('id'):
                 odoogpt_model = self.create({
                     'openai_id': openai_model.get('id'),
-                    'openai_owned_by': openai_model.get('owned_by'),
-                    'openai_permission': openai_model.get('permission'),
+                    'owned_by': openai_model.get('owned_by'),
+                    'permission': openai_model.get('permission'),
                 })
 
                 odoogpt_models[odoogpt_model.openai_id] = odoogpt_model
