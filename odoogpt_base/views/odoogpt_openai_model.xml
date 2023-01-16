@@ -8,7 +8,7 @@
             <field name="arch" type="xml">
                 <tree name="odoogpt_openai_model_tree" string="OdooGTP OpenAI Models" create="0" edit="0">
                     <field name="openai_id" />
-                    <field name="openai_owned_by" optional="hide" />
+                    <field name="owned_by" optional="hide" />
                 </tree>
             </field>
         </record>
@@ -21,10 +21,10 @@
                     <sheet>
                         <group colspan="2">
                             <field name="openai_id" />
-                            <field name="openai_owned_by" />
+                            <field name="owned_by" />
                         </group>
                         <group colspan="2">
-                            <field name="openai_permission_string" class="font-monospace" />
+                            <field name="permission_string" class="font-monospace" />
                         </group>
                     </sheet>
                 </form>
