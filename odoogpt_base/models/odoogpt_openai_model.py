@@ -1,26 +1,17 @@
 # -*- coding: utf-8 -*-
 
 from odoo import models, fields, api, _
-from odoo.exceptions import ValidationError, UserError
+from odoo.exceptions import UserError
 import json
 
 
 class OdoogptOpenaiModel(models.Model):
     _name = 'odoogpt.openai.model'
+    _inherit= 'odoogpt.openai.mixin'
     _description = 'OdooGPT OpenAI Model'
-    _rec_name = 'openai_id'
 
-    _sql_constraints = [
-        ('UNIQUE_OPENAI_ID', 'UNIQUE(openai_id)', _('The OpenAI Id of a Model must be unique!'))
-    ]
+    REC_TYPES = ['model']
 
-
-    openai_id = fields.Char(
-        string='OpenAI Id',
-        required=False,
-        default=False,
-        index=True,
-    )
 
     owned_by = fields.Char(
         string='OpenAI Owned by',
@@ -50,58 +41,16 @@ class OdoogptOpenaiModel(models.Model):
             )
 
 
-    # UTILS
-    def _get_as_dict(self, domain=[]):
-        """Get all models in a dict format (openai_id: record)"""
-        models = self.search(domain)
-
-        return {model.openai_id: model for model in models}
-
-
+    # REFRESH FROM API
     @api.model
-    def refresh_from_api(self, format='model'):
-        """Refresh Models stored in database from OpenAI apis"""
-        # TODO: Check what to do with unlinking of inexistent model. Maybe we
-        #       can keep them.
+    def _refresh_from_api(self):
         OdoogptOpenaiUtils = self.env['odoogpt.openai.utils']
-
-        # Check and get OpenAI Api Key
         api_key = OdoogptOpenaiUtils._odoogpt_check_api_key(raise_err=True)
+        return OdoogptOpenaiUtils.models_list(api_key=api_key)
 
-        # Get Models from OpenAI
-        try:
-            openai_models = OdoogptOpenaiUtils.models_list(api_key=api_key)
-        except Exception as ex:
-            raise UserError(ex)
-
-        if not openai_models and not len(openai_models):
-            raise ValidationError(_('No Models found from OpenAI api'))
-
-        # Store/update models in our database
-        odoogpt_models = self._get_as_dict()
-        for openai_model in openai_models:
-            if openai_model.get('object', '') != 'model':
-                continue
-
-            odoogpt_model = odoogpt_models.get(openai_model['id'])
-            if odoogpt_model:
-                odoogpt_model.write({
-                    'owned_by': openai_model.get('owned_by', odoogpt_model.owned_by),
-                    'permission': openai_model.get('permission', odoogpt_model.permission),
-                })
-            elif openai_model.get('id'):
-                odoogpt_model = self.create({
-                    'openai_id': openai_model.get('id'),
-                    'owned_by': openai_model.get('owned_by'),
-                    'permission': openai_model.get('permission'),
-                })
-
-                odoogpt_models[odoogpt_model.openai_id] = odoogpt_model
-
-        # Return
-        if format == 'dict':
-            return odoogpt_models
-        else:   # format == 'model' or anything else
-            ret = self
-            for model in odoogpt_models.values():
-                ret += model
+    @property
+    def _refresh_from_api_fields(self):
+        return [
+            'owned_by',
+            'permission',
+        ]
