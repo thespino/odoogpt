@@ -11,6 +11,7 @@
 
     'depends': [
         'base',
+        'base_setup'
     ],
     'external_dependencies': {
         'python': [
