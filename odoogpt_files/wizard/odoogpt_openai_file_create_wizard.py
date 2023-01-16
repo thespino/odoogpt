@@ -14,6 +14,11 @@ class OdoogptOpenaiFileCreateWizard(models.TransientModel):
         string='File',
         required=True,
     )
+    file_name = fields.Char(
+        string='File Name',
+        required=False,
+        default=False,
+    )
 
     purpose = fields.Selection(
         string='Purpose',
@@ -35,7 +40,8 @@ class OdoogptOpenaiFileCreateWizard(models.TransientModel):
 
             OdoogptOpenaiUtils.files_create(
                 file=base64.decodebytes(self.file),
-                purpose=self.purpose
+                purpose=self.purpose,
+                user_provided_filename=self.file_name or 'file'
             )
 
             OdoogptOpenaiFile.refresh_from_api()
