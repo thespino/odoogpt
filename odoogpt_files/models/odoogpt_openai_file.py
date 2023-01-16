@@ -81,8 +81,8 @@ class OdoogptOpenaiFile(models.Model):
             odoogpt_record = odoogpt_records.get(openai_record['id'])
             if odoogpt_record:
                 odoogpt_record.write({
-                    'filename': odoogpt_records.get('filename', odoogpt_record.filename),
-                    'purpose': odoogpt_records.get('purpose', odoogpt_record.filename),
+                    'filename': openai_record.get('filename', odoogpt_record.filename),
+                    'purpose': openai_record.get('purpose', odoogpt_record.purpose),
                 })
             elif openai_record.get('id'):
                 odoogpt_record = self.create({
