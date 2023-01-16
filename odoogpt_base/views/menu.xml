@@ -7,36 +7,46 @@
             groups="base.group_erp_manager"
             parent="base.menu_administration"
             sequence="40"
+        />
+
+
+        <menuitem
+            id="odoogpt_settings_models_menu"
+            name="OpenAI Models"
+            groups="base.group_erp_manager"
+            parent="odoogpt_base.odoogpt_settings_menu"
+            sequence="10"
         >
             <menuitem
-                id="odoogpt_settings_models_menu"
+                id="odoogpt_settings_models_model_menu"
                 name="OpenAI Models"
                 action="odoogpt_openai_model_act_window"
                 groups="base.group_erp_manager"
                 sequence="10"
             />
             <menuitem
-                id="odoogpt_settings_logs_menu"
-                name="OpenAI Logs"
-                action="odoogpt_openai_log_act_window"
+                id="odoogpt_settings_models_refresh_model_menu"
+                name="Refresh OpenAI Models"
+                action="odoogpt_openai_model_refresh_from_api_act_server"
                 groups="base.group_erp_manager"
                 sequence="15"
             />
+        </menuitem>
 
+        <menuitem
+            id="odoogpt_settings_logs_menu"
+            name="Other"
+            groups="base.group_erp_manager"
+            parent="odoogpt_base.odoogpt_settings_menu"
+            sequence="90"
+        >
             <menuitem
-                id="odoogpt_settings_actions_menu"
-                name="Actions"
+                id="odoogpt_settings_logs_log_menu"
+                name="OpenAI Logs"
+                action="odoogpt_openai_log_act_window"
                 groups="base.group_erp_manager"
-                sequence="50"
-            >
-                <menuitem
-                    id="odoogpt_settings_actions_refresh_models_menu"
-                    name="Refresh OpenAI Models"
-                    action="odoogpt_openai_model_refresh_from_api_act_server"
-                    groups="base.group_erp_manager"
-                    sequence="10"
-                />
-            </menuitem>
+                sequence="10"
+            />
         </menuitem>
 
     </data>
