@@ -9,7 +9,8 @@
                 <form name="odoogpt_openai_file_create_wizard" string="Upload file to OpenAI">
                     <sheet>
                         <group colspan="2">
-                            <field name="file" />
+                            <field name="file" filename="file_name" />
+                            <field name="file_name" invisible="1" />
                             <field name="purpose" />
                         </group>
                     </sheet>
