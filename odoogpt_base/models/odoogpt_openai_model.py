@@ -51,7 +51,7 @@ class OdoogptOpenaiModel(models.Model):
 
 
     # UTILS
-    def _get_models_as_dict(self, domain=[]):
+    def _get_as_dict(self, domain=[]):
         """Get all models in a dict format (openai_id: record)"""
         models = self.search(domain)
 
@@ -59,7 +59,7 @@ class OdoogptOpenaiModel(models.Model):
 
 
     @api.model
-    def odoogpt_openai_model_refresh_from_api(self, format='model'):
+    def refresh_from_api(self, format='model'):
         """Refresh Models stored in database from OpenAI apis"""
         # TODO: Check what to do with unlinking of inexistent model. Maybe we
         #       can keep them.
@@ -78,7 +78,7 @@ class OdoogptOpenaiModel(models.Model):
             raise ValidationError(_('No Models found from OpenAI api'))
 
         # Store/update models in our database
-        odoogpt_models = self._get_models_as_dict()
+        odoogpt_models = self._get_as_dict()
         for openai_model in openai_models:
             if openai_model.get('object', '') != 'model':
                 continue

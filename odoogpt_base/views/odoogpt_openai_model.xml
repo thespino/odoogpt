@@ -46,7 +46,7 @@
             <field name="model_id" ref="odoogpt_base.model_odoogpt_openai_model"/>
             <field name="state">code</field>
             <field name="code">
-model.odoogpt_openai_model_refresh_from_api()
+model.refresh_from_api()
             </field>
         </record>
     </data>
