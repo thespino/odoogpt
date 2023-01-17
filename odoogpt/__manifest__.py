@@ -25,6 +25,10 @@
         ],
     },
 
+    'images': [
+        'static/description/cover/odoogpt.png',
+    ],
+
     'installable': True,
     'auto_install': False,
     'application': False,
