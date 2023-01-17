@@ -5,6 +5,7 @@
     'description': """Make OdooBot useful by adding GPT intelligence 🧠""",
     'license': 'LGPL-3',
     'version': '0.0.7',
+    'price': '29.99',
     'category': 'Productivity/Discuss',
     'author': 'thespino',
     'website': 'https://github.com/thespino',
