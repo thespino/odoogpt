@@ -32,6 +32,10 @@
         'views/menu.xml',
     ],
 
+    'images': [
+        'static/description/cover/odoogpt_base.png',
+    ],
+
     'installable': True,
     'auto_install': False,
     'application': False,

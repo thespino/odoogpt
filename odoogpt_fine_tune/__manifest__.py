@@ -25,6 +25,10 @@
         'views/menu.xml',
     ],
 
+    'images': [
+        'static/description/cover/odoogpt_fine_tune.png',
+    ],
+
     'installable': True,
     'auto_install': False,
     'application': False,
