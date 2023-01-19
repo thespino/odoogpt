@@ -4,7 +4,7 @@
     'summary': 'Fine tune OpenAI models',
     'description': """Fine tune OpenAI models""",
     'license': 'LGPL-3',
-    'version': '0.0.4',
+    'version': '0.0.5',
     'price': '4.99',
     'category': 'Productivity',
     'author': 'thespino',
