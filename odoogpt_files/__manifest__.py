@@ -5,7 +5,7 @@
     'description': """Manage OpenAI Files""",
     'license': 'LGPL-3',
     'version': '0.0.4',
-    'price': '19.99',
+    'price': '4.99',
     'category': 'Productivity',
     'author': 'thespino',
     'website': 'https://github.com/thespino',
