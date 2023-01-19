@@ -18,7 +18,7 @@ class OdoogptOpenaiFineTuneCreateWizard(models.TransientModel):
         ]"""
     )
     validation_file = fields.Many2one(
-        string='Training File',
+        string='Validation File',
         comodel_name='odoogpt.openai.file',
         required=False,
         default=False,
