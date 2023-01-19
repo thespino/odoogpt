@@ -4,7 +4,7 @@
     'summary': 'Base addon with utils to make OdooGPT work fine',
     'description': """Base addon with utils to make OdooGPT work fine""",
     'license': 'LGPL-3',
-    'version': '0.0.5',
+    'version': '0.0.6',
     'price': '10.00',
     'category': 'Productivity',
     'author': 'thespino',
