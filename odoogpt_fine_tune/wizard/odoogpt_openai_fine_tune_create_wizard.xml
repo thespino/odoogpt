@@ -9,9 +9,9 @@
                 <form name="odoogpt_openai_fine_tunecreate_wizard" string="Create OpenAI Fine Tune">
                     <sheet>
                         <group colspan="2">
-                            <field name="training_file" />
-                            <field name="validation_file" />
-                            <field name="model" />
+                            <field name="training_file" options="{'no_open': True, 'no_create': True, 'no_quick_create': True}" />
+                            <field name="validation_file" options="{'no_open': True, 'no_create': True, 'no_quick_create': True}" />
+                            <field name="model" options="{'no_open': True, 'no_create': True, 'no_quick_create': True}" />
                             <field name="suffix" />
                         </group>
                     </sheet>
