@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 {
     'name': 'OdooGPT fine tune',
-    'summary': 'Fine tune OpenAI models',
+    'summary': 'Fine tune OpenAI models. Integrate with OpenAI ChatGPT',
     'description': """Fine tune OpenAI models""",
     'license': 'LGPL-3',
     'version': '0.0.5',

@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 {
     'name': 'OdooGPT files',
-    'summary': 'Manage OpenAI Files',
+    'summary': 'Manage OpenAI Files. Integrate with OpenAI ChatGPT',
     'description': """Manage OpenAI Files""",
     'license': 'LGPL-3',
     'version': '0.0.5',

@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 {
     'name': 'OdooGPT',
-    'summary': 'Make OdooBot finally useful',
+    'summary': 'Make OdooBot finally useful. Integrate with OpenAI ChatGPT',
     'description': """Make OdooBot useful by adding GPT intelligence 🧠""",
     'license': 'LGPL-3',
     'version': '0.0.9',

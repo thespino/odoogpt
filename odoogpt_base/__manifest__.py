@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 {
     'name': 'OdooGPT base',
-    'summary': 'Base addon with utils to make OdooGPT work fine',
+    'summary': 'Base addon with utils to make OdooGPT work fine. Integrate with OpenAI ChatGPT',
     'description': """Base addon with utils to make OdooGPT work fine""",
     'license': 'LGPL-3',
     'version': '0.0.6',
