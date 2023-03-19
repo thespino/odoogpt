@@ -1,5 +1,0 @@
-id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-access_odoogpt_openai_file_erp_manager,access_odoogpt_openai_file_erp_manager,model_odoogpt_openai_file,base.group_erp_manager,1,1,1,1
-access_odoogpt_openai_file_user,access_odoogpt_openai_file_user,model_odoogpt_openai_file,base.group_user,1,0,0,0
-
-access_odoogpt_openai_file_create_wizard_erp_manager,access_odoogpt_openai_file_create_wizard_erp_manager,model_odoogpt_openai_file_create_wizard,base.group_erp_manager,1,1,1,1

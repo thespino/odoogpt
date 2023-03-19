@@ -1,25 +1,52 @@
-# OdooGPT
+# odoogpt
 
-Integrate Odoo with OpenAI and GPT Models
-
-
-## Available addons
+Make OdooBot finally useful
 
 
-icon | addon | description | version | odoo version
----- | ------|-------------|---------|-------------
-<img src="./odoogpt_base/static/description/icon.png" width="50" /> | odoogpt_base | Base addon with utils to make OdooGPT work fine | ![](https://img.shields.io/badge/-0.0.6-%23701068) | ![](https://img.shields.io/badge/-16.0-%23701068)
-<img src="./odoogpt/static/description/icon.png" width="50" /> | odoogpt | Make OdooBot finally useful | ![](https://img.shields.io/badge/-0.0.9-%23701068) | ![](https://img.shields.io/badge/-16.0-%23701068)
-<img src="./odoogpt_files/static/description/icon.png" width="50" /> | odoogpt_files | Manage OpenAI Files | ![](https://img.shields.io/badge/-0.0.5-%23701068) | ![](https://img.shields.io/badge/-16.0-%23701068)
-<img src="./odoogpt_fine_tune/static/description/icon.png" width="50" /> | odoogpt_fine_tune | Fine tune OpenAI models | ![](https://img.shields.io/badge/-0.0.5-%23701068) | ![](https://img.shields.io/badge/-16.0-%23701068)
+## Requirements
+
+The module requires the OpenAI python library named `openai` and Odoo 16.0.
 
 
-## Requirements 
+## Installation instructions 
 
-The modules require the **OpenAI** python library named `openai`
+1. Place all downloaded **modules** into your Odoo's addons folder
+
+2. Install required **python modules**:
+
 ```
 pip install openai
 ```
+
+3. Go to **"Apps"** (in debug mode) and click **"Update Apps List"**. Accept at confirmation.
+
+4. Search for "odoogpt" in Apps list and install it by pressing "Activate" button. 
+
+
+
+## Configuration
+
+### Base config
+
+1. Go to **"Settings → OdooGPT"** and fill your OpenAI Api token. Get it from there: https://beta.openai.com/account/api-keys
+
+2. Save configurations
+
+3. Click "Test" near the api token. If message "Everything properly set up! You're good to go!" appears, the configuration is done. 
+
+4. If needed, play with the **"OpenAI Parameters"**. To understand how they work, refer to OpenAi official docs at https://beta.openai.com/docs 
+
+> NOTE: by default, the system will use the model "text-davinci-003". You can change it in settings
+
+
+### OdooBot / Chat config
+
+1. Go to **"Settings → OdooGPT"** and look at "OdooGPT Chat Customization"
+
+2. If needed, customize the "Prompt prefix" and "Prompt suffix"
+
+3. Save settings and enjoy!
+
 
 
 ## Thanks to

@@ -1,0 +1,115 @@
+<odoo>
+    <data>
+
+        <menuitem
+            id="odoogpt_settings_menu"
+            name="OdooGPT"
+            groups="base.group_erp_manager"
+            parent="base.menu_administration"
+            sequence="40"
+        />
+
+
+        <menuitem
+            id="odoogpt_settings_models_menu"
+            name="OpenAI Models"
+            groups="base.group_erp_manager"
+            parent="odoogpt.odoogpt_settings_menu"
+            sequence="10"
+        >
+            <menuitem
+                id="odoogpt_settings_models_model_menu"
+                name="OpenAI Models"
+                action="odoogpt_openai_model_act_window"
+                groups="base.group_erp_manager"
+                sequence="10"
+            />
+            <menuitem
+                id="odoogpt_settings_models_refresh_model_menu"
+                name="Refresh OpenAI Models"
+                action="odoogpt_openai_model_refresh_from_api_act_server"
+                groups="base.group_erp_manager"
+                sequence="15"
+            />
+        </menuitem>
+
+
+        <menuitem
+            id="odoogpt_settings_files_menu"
+            name="OpenAI Files"
+            groups="base.group_erp_manager"
+            parent="odoogpt.odoogpt_settings_menu"
+            sequence="30"
+        >
+            <menuitem
+                id="odoogpt_settings_files_file_menu"
+                name="OpenAI Files"
+                action="odoogpt_openai_file_act_window"
+                groups="base.group_erp_manager"
+                sequence="10"
+            />
+            <menuitem
+                id="odoogpt_settings_files_refresh_file_menu"
+                name="Refresh OpenAI Files"
+                action="odoogpt_openai_file_refresh_from_api_act_server"
+                groups="base.group_erp_manager"
+                sequence="15"
+            />
+            <menuitem
+                id="odoogpt_settings_files_create_file_menu"
+                name="Upload OpenAI File"
+                action="odoogpt_openai_file_create_wizard_act_window"
+                groups="base.group_erp_manager"
+                sequence="20"
+            />
+        </menuitem>
+
+        <menuitem
+            id="odoogpt_settings_fine_tune_menu"
+            name="OpenAI Fine Tunes"
+            groups="base.group_erp_manager"
+            parent="odoogpt.odoogpt_settings_menu"
+            sequence="50"
+        >
+            <menuitem
+                id="odoogpt_settings_fine_tune_fine_tune_menu"
+                name="OpenAI Fine Tunes"
+                action="odoogpt_openai_fine_tune_act_window"
+                groups="base.group_erp_manager"
+                sequence="10"
+            />
+            <menuitem
+                id="odoogpt_settings_fine_tune_refresh_fine_tune_menu"
+                name="Refresh OpenAI Fine Tunes"
+                action="odoogpt_openai_fine_tune_refresh_from_api_act_server"
+                groups="base.group_erp_manager"
+                sequence="15"
+            />
+            <menuitem
+                id="odoogpt_settings_fine_tune_create_fine_tune_menu"
+                name="Create OpenAI Fine Tune"
+                action="odoogpt_openai_fine_tune_create_wizard_act_window"
+                groups="base.group_erp_manager"
+                sequence="20"
+            />
+        </menuitem>
+
+
+        <menuitem
+            id="odoogpt_settings_logs_menu"
+            name="Other"
+            groups="base.group_erp_manager"
+            parent="odoogpt.odoogpt_settings_menu"
+            sequence="90"
+        >
+            <menuitem
+                id="odoogpt_settings_logs_log_menu"
+                name="OpenAI Logs"
+                action="odoogpt_openai_log_act_window"
+                groups="base.group_erp_manager"
+                sequence="10"
+            />
+        </menuitem>
+
+    </data>
+</odoo>

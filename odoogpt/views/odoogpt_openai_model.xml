@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="odoogpt_openai_model_view_list" model="ir.ui.view">
+            <field name="name">odoogpt.openai.model.view.list</field>
+            <field name="model">odoogpt.openai.model</field>
+            <field name="arch" type="xml">
+                <tree name="odoogpt_openai_model_tree" string="OdooGTP OpenAI Models" create="0" edit="0">
+                    <field name="openai_id" />
+                    <field name="owned_by" optional="hide" />
+                </tree>
+            </field>
+        </record>
+
+        <record id="odoogpt_openai_model_view_form" model="ir.ui.view">
+            <field name="name">odoogpt.openai.model.view.form</field>
+            <field name="model">odoogpt.openai.model</field>
+            <field name="arch" type="xml">
+                <form name="odoogpt_openai_model_form" create="0" edit="0">
+                    <sheet>
+                        <group colspan="2">
+                            <field name="openai_id" />
+                            <field name="owned_by" />
+                        </group>
+                        <group colspan="2">
+                            <field name="permission_string" class="font-monospace" />
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+
+        <record id="odoogpt_openai_model_act_window" model="ir.actions.act_window">
+            <field name="name">OdooGPT OpenAI Models</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">odoogpt.openai.model</field>
+            <field name="view_mode">tree,form</field>
+            <field name="target">current</field>
+        </record>
+
+
+        <record id="odoogpt_openai_model_refresh_from_api_act_server" model="ir.actions.server">
+            <field name="name">OdooGPT Refresh OpenAI Models</field>
+            <field name="model_id" ref="odoogpt.model_odoogpt_openai_model"/>
+            <field name="state">code</field>
+            <field name="code">
+model.refresh_from_api()
+            </field>
+        </record>
+    </data>
+</odoo>
