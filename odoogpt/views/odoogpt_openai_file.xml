@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="odoogpt_openai_file_view_list" model="ir.ui.view">
+            <field name="name">odoogpt.openai.file.view.list</field>
+            <field name="model">odoogpt.openai.file</field>
+            <field name="arch" type="xml">
+                <tree name="odoogpt_openai_file_tree" string="OdooGTP OpenAI Files" create="0" edit="0">
+                    <field name="openai_id" />
+                    <field name="filename" optional="show" />
+                </tree>
+            </field>
+        </record>
+
+        <record id="odoogpt_openai_file_view_form" model="ir.ui.view">
+            <field name="name">odoogpt.openai.file.view.form</field>
+            <field name="model">odoogpt.openai.file</field>
+            <field name="arch" type="xml">
+                <form name="odoogpt_openai_file_form" create="0" edit="0">
+                    <header>
+                        <button 
+                            string="Delete from OpenAI"
+                            name="delete_from_api"
+                            type="object"
+                            confirm="Are you sure you want to continue? This will definetely delete the file from OpenAI and Odoo!"
+                        />
+                    </header>
+                    <sheet>
+                        <group colspan="2">
+                            <field name="openai_id" />
+                            <field name="filename" />
+                            <field name="purpose" />
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+
+        <record id="odoogpt_openai_file_act_window" model="ir.actions.act_window">
+            <field name="name">OdooGPT OpenAI Files</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">odoogpt.openai.file</field>
+            <field name="view_mode">tree,form</field>
+            <field name="target">current</field>
+        </record>
+
+
+        <record id="odoogpt_openai_file_refresh_from_api_act_server" model="ir.actions.server">
+            <field name="name">OdooGPT Refresh OpenAI Files</field>
+            <field name="model_id" ref="odoogpt.model_odoogpt_openai_file"/>
+            <field name="state">code</field>
+            <field name="code">
+model.refresh_from_api()
+            </field>
+        </record>
+
+        <record id="odoogpt_openai_file_delete_from_api_act_server" model="ir.actions.server">
+            <field name="name">Delete from OpenAI</field>
+            <field name="model_id" ref="odoogpt.model_odoogpt_openai_file"/>
+            <field name="binding_model_id" ref="odoogpt.model_odoogpt_openai_file"/>
+            <field name="state">code</field>
+            <field name="code">
+action = records.delete_from_api()
+            </field>
+        </record>
+    </data>
+</odoo>

@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="odoogpt_openai_fine_tune_view_list" model="ir.ui.view">
+            <field name="name">odoogpt.openai.fine.tune.view.list</field>
+            <field name="model">odoogpt.openai.fine.tune</field>
+            <field name="arch" type="xml">
+                <tree name="odoogpt_openai_fine_tune_tree" string="OdooGTP OpenAI Fine Tunes" create="0" edit="0">
+                    <field name="openai_id" />
+                    <field name="model" optional="show" />
+                    <field name="fine_tuned_model" optional="show" />
+                    <field name="status" optional="show" />
+                </tree>
+            </field>
+        </record>
+
+        <record id="odoogpt_openai_fine_tune_view_form" model="ir.ui.view">
+            <field name="name">odoogpt.openai.fine.tune.view.form</field>
+            <field name="model">odoogpt.openai.fine.tune</field>
+            <field name="arch" type="xml">
+                <form name="odoogpt_openai_fine_tune_form" create="0" edit="0">
+                    <header>
+                        <button 
+                            string="Cancel from OpenAI"
+                            name="cancel_from_api"
+                            type="object"
+                            confirm="Are you sure you want to continue? This will cancel the fine-tune job, not the relative model!"
+                        />
+
+                        <field name="status" widget="statusbar" />
+                    </header>
+                    <sheet>
+                        <group colspan="2">
+                            <field name="openai_id" />
+                            <field name="model" />
+                            <field name="fine_tuned_model" />
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+
+        <record id="odoogpt_openai_fine_tune_act_window" model="ir.actions.act_window">
+            <field name="name">OdooGPT OpenAI Fine Tunes</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">odoogpt.openai.fine.tune</field>
+            <field name="view_mode">tree,form</field>
+            <field name="target">current</field>
+        </record>
+
+
+        <record id="odoogpt_openai_fine_tune_refresh_from_api_act_server" model="ir.actions.server">
+            <field name="name">OdooGPT Refresh OpenAI Fine Tunes</field>
+            <field name="model_id" ref="odoogpt.model_odoogpt_openai_fine_tune"/>
+            <field name="state">code</field>
+            <field name="code">
+model.refresh_from_api()
+            </field>
+        </record>
+
+        <record id="odoogpt_openai_fine_tune_cancel_from_api_act_server" model="ir.actions.server">
+            <field name="name">Cancel from OpenAI</field>
+            <field name="model_id" ref="odoogpt.model_odoogpt_openai_fine_tune"/>
+            <field name="binding_model_id" ref="odoogpt.model_odoogpt_openai_fine_tune"/>
+            <field name="state">code</field>
+            <field name="code">
+action = records.cancel_from_api()
+            </field>
+        </record>
+    </data>
+</odoo>
