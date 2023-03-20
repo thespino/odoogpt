@@ -1,5 +1,8 @@
 # odoogpt
 
+
+![](odoogpt/static/description/cover/odoogpt.png)
+
 Make OdooBot finally useful
 
 
