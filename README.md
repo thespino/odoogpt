@@ -8,6 +8,7 @@ Make OdooBot finally useful
 <a href="https://youtu.be/HBZ-pHthh4g" target="blank">
     <img src="odoogpt/static/description/img/youtube-watch.png" />
 </a>
+
 https://youtu.be/HBZ-pHthh4g
 
 
