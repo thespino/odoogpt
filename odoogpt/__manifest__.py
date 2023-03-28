@@ -4,10 +4,10 @@
     'summary': 'Make OdooBot finally useful. Integrate with OpenAI ChatGPT (GPT-3)',
     'description': """Make OdooBot useful by adding OpenAI GPT-3 intelligence 🧠""",
     'license': 'LGPL-3',
-    'version': '0.0.9',
+    'version': '1.0.0',
     'category': 'Productivity/Discuss',
     'author': 'thespino',
-    'website': 'https://github.com/thespino',
+    'website': 'https://odoogpt.thespino.dev',
 
     'depends': [
         'base',
