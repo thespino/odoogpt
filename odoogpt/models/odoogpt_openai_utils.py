@@ -84,6 +84,39 @@ class OdoogptOpenaiUtils(models.AbstractModel):
         return response['choices'][0]['text']
 
 
+    # CHAT COMPLETION ====================================================================
+
+    def _chat_completion_create__get_parameters(self):
+        return self._odoogpt_get_parameters([
+            # Odoo name, OpenAI name
+            ('odoogpt_openai_api_key', 'api_key'),
+            ('odoogpt_openai_model', 'model'),
+            ('odoogpt_openai_max_tokens', 'max_tokens'),
+            ('odoogpt_openai_temperature', 'temperature'),
+        ])
+
+    def chat_completion_create(self, messages, **kwargs):
+        """Create a Chat Completition. Ref. https://platform.openai.com/docs/api-reference/chat/create"""
+        response = openai.ChatCompletion.create(
+            messages=messages,
+            **{
+                **self._completition_create__get_parameters(),
+                **kwargs,
+            }
+        )
+
+        # Log
+        self.env['odoogpt.openai.log'].sudo().create({
+            'type': 'chat-completion',
+            'raw_request': str(messages),
+            'parsed_request': str(messages),
+            'raw_response': str(response),
+            'parsed_response': response['choices'][0]['message']['content'],
+        })
+
+        return response['choices'][0]['message']['content']
+
+
     # FILES ==============================================================================
 
     def _files_list__get_parameters(self):

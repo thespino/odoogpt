@@ -13,7 +13,8 @@ class OdoogptOpenaiLog(models.Model):
         string='Request Type',
         help="""Type of request""",
         selection=[
-            ('completition', 'Completition')
+            ('completition', 'Completition'),
+            ('chat-completion', 'Chat Completion'),
         ],
         required=True,
     )
