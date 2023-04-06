@@ -1,10 +1,23 @@
 # -*- coding: utf-8 -*-
-
-from odoo import models, fields, _
+import importlib.metadata
+import openai
+from odoo import models, fields, api, _
+from odoo.exceptions import ValidationError
 
 
 class ResCompany(models.Model):
     _inherit = 'res.company'
+
+
+    @api.constrains('odoogpt_chat_method')
+    def _check_odoogpt_chat_method(self):
+        if not hasattr(openai, 'ChatCompletion'):
+            raise ValidationError(_("""OdooGPT: We're sorry, ChatCompletion is not available in your system. 
+Check that openai python module version is >= 0.27.0 to use this functionality. 
+Installed version: {openai_version} 
+See https://github.com/openai/openai-python/releases/tag/v0.27.0""").format(
+                openai_version=str(importlib.metadata.version('openai'))
+            ))
 
 
     odoogpt_openai_api_key = fields.Char(
