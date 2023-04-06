@@ -89,7 +89,8 @@
                                             <label for="odoogpt_chat_method" />
                                         </p>
                                         <p class="mb16 text-muted">
-                                            Use Completion or ChatCompletion
+                                            Use Completion or ChatCompletion. <br />
+                                            <i>NOTE: Completion is being deprecated!</i>
                                         </p>
                                         <field name="odoogpt_chat_method" class="w-25" required="1" />
                                     </div>
