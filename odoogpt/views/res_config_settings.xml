@@ -81,7 +81,23 @@
                             <h2>OdooGPT Chat Customization</h2>
     
                             <div class="row mt16 o_settings_container" name="odoogpt_chat_customization_container">
-                                <div class="col-12 col-lg-6 o_setting_box" id="odoogpt_openai_prompt_prefix">
+                                <div class="col-12 o_setting_box" id="odoogpt_chat_method">
+                                    <div class="o_setting_left_pane">
+                                    </div>
+                                    <div class="o_setting_right_pane">
+                                        <p class="mb-0">
+                                            <label for="odoogpt_chat_method" />
+                                        </p>
+                                        <p class="mb16 text-muted">
+                                            Use Completion or ChatCompletion
+                                        </p>
+                                        <field name="odoogpt_chat_method" class="w-25" required="1" />
+                                    </div>
+                                </div>
+
+                                <div class="col-12 col-lg-6 o_setting_box" id="odoogpt_openai_prompt_prefix"
+                                    attrs="{ 'invisible': [('odoogpt_chat_method', '!=', 'completion')] }"
+                                >
                                     <div class="o_setting_left_pane">
                                     </div>
                                     <div class="o_setting_right_pane">
@@ -98,7 +114,9 @@
                                         <field name="odoogpt_openai_prompt_prefix" class="w-75" />
                                     </div>
                                 </div>
-                                <div class="col-12 col-lg-6 o_setting_box" id="odoogpt_openai_prompt_suffix">
+                                <div class="col-12 col-lg-6 o_setting_box" id="odoogpt_openai_prompt_suffix"
+                                    attrs="{ 'invisible': [('odoogpt_chat_method', '!=', 'completion')] }"
+                                >
                                     <div class="o_setting_left_pane">
                                     </div>
                                     <div class="o_setting_right_pane">
@@ -114,6 +132,24 @@
                                         <field name="odoogpt_openai_prompt_suffix" class="w-75" />
                                     </div>
                                 </div>
+
+                                <div class="col-12 col-lg-6 o_setting_box" id="odoogpt_chat_system_message"
+                                    attrs="{ 'invisible': [('odoogpt_chat_method', '!=', 'chat-completion')] }"
+                                >
+                                    <div class="o_setting_left_pane">
+                                    </div>
+                                    <div class="o_setting_right_pane">
+                                        <p class="mb-0">
+                                            <label for="odoogpt_chat_system_message" />
+                                        </p>
+                                        <p class="mb16 text-muted">
+                                            The first message to send to ChatGPT as "system" role in 
+                                            order to give context and basic instructions.
+                                        </p>
+                                        <field name="odoogpt_chat_system_message" required="1" />
+                                    </div>
+                                </div>
+
                             </div>
                         </div>
                     </div>
