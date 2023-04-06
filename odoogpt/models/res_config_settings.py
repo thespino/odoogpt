@@ -45,6 +45,29 @@ class ResConfigSettings(models.TransientModel):
     )
 
 
+    # CHAT CUSTOMIZATION ===========================================================================
+
+    odoogpt_chat_method = fields.Selection(
+        string='Chat method',
+        help="""Which method to use for chatting""",
+        related='company_id.odoogpt_chat_method',
+        default='completion',
+        # TODO: will be deprecated, in favour of chat-completion
+        required=False,
+        readonly=False,
+    )
+
+
+    odoogpt_chat_system_message = fields.Text(
+        string='System message',
+        help="""The first message that is sent to ChatGPT to give context and instructions""",
+        related='company_id.odoogpt_chat_system_message',
+        default="""You give useful answers about Odoo ERP and give all requested information""",
+        required=False,
+        readonly=False,
+    )
+
+
     odoogpt_openai_prompt_prefix = fields.Char(
         string='OpenAI Prompt prefix',
         help="""Prefix to send to all OpenAI Completition Api requests""",
@@ -70,6 +93,8 @@ class ResConfigSettings(models.TransientModel):
         self.env.company.odoogpt_openai_model = self.odoogpt_openai_model
         self.env.company.odoogpt_openai_max_tokens = self.odoogpt_openai_max_tokens
         self.env.company.odoogpt_openai_temperature = self.odoogpt_openai_temperature
+        self.env.company.odoogpt_chat_method = self.odoogpt_chat_method
+        self.env.company.odoogpt_chat_system_message = self.odoogpt_chat_system_message
         self.env.company.odoogpt_openai_prompt_prefix = self.odoogpt_openai_prompt_prefix
         self.env.company.odoogpt_openai_prompt_suffix = self.odoogpt_openai_prompt_suffix
         return res
@@ -82,6 +107,8 @@ class ResConfigSettings(models.TransientModel):
             odoogpt_openai_model = self.env.company.odoogpt_openai_model,
             odoogpt_openai_max_tokens = self.env.company.odoogpt_openai_max_tokens,
             odoogpt_openai_temperature = self.env.company.odoogpt_openai_temperature,
+            odoogpt_chat_method = self.env.company.odoogpt_chat_method,
+            odoogpt_chat_system_message = self.env.company.odoogpt_chat_system_message,
             odoogpt_openai_prompt_prefix = self.env.company.odoogpt_openai_prompt_prefix,
             odoogpt_openai_prompt_suffix = self.env.company.odoogpt_openai_prompt_suffix
         )

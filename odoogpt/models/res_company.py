@@ -36,6 +36,29 @@ class ResCompany(models.Model):
     )
 
 
+    # CHAT CUSTOMIZATION ===========================================================================
+
+    odoogpt_chat_method = fields.Selection(
+        string='Chat method',
+        help="""Which method to use for chatting""",
+        selection=[
+            ('completion', 'Completion'),
+            ('chat-completion', 'Chat Completion'),
+        ],
+        default='completion',
+        # TODO: will be deprecated, in favour of chat-completion
+        required=False,
+    )
+
+
+    odoogpt_chat_system_message = fields.Text(
+        string='System message',
+        help="""The first message that is sent to ChatGPT to give context and instructions""",
+        default="""You give useful answers about Odoo ERP and give all requested information""",
+        required=False,
+    )
+
+
     odoogpt_openai_prompt_prefix = fields.Char(
         string='OpenAI Prompt prefix',
         help="""Prefix to send to all OpenAI Completition Api requests""",
