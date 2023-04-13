@@ -11,9 +11,9 @@ class ResCompany(models.Model):
 
     @api.constrains('odoogpt_chat_method')
     def _check_odoogpt_chat_method(self):
-        if not hasattr(openai, 'ChatCompletion'):
+        if any(company.odoogpt_chat_method == 'chat-completion' for company in self) and not hasattr(openai, 'ChatCompletion'):
             raise ValidationError(_("""OdooGPT: We're sorry, ChatCompletion is not available in your system. 
-Check that openai python module version is >= 0.27.0 to use this functionality. 
+Check that openai python module version is >= 0.27.0 to use this functionality; otherwise, set "Chat method" in OdooGPT settings to "Completion". 
 Installed version: {openai_version} 
 See https://github.com/openai/openai-python/releases/tag/v0.27.0""").format(
                 openai_version=str(importlib.metadata.version('openai'))
