@@ -39,7 +39,7 @@
 
     'assets': {
         'web.assets_backend': [
-            'odoogpt/static/src/models/messaging_initializer.js',
+            'odoogpt/static/src/models/messaging_initializer_ai.js',
         ],
     },
 
