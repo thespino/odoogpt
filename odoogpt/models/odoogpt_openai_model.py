@@ -19,7 +19,7 @@ class OdoogptOpenaiModel(models.Model):
         default=False,
     )
 
-    permission = fields.Json(
+    permission = fields.Text(
         string='OpenAI permission',
         required=False,
         default=False,
@@ -36,7 +36,7 @@ class OdoogptOpenaiModel(models.Model):
     def _compute_permission_string(self):
         for openai_model in self:
             openai_model.permission_string = json.dumps(
-                self.permission or {},
+                json.dumps(self.permission or '{}'),
                 indent=4
             )
 

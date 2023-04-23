@@ -14,7 +14,7 @@ https://youtu.be/HBZ-pHthh4g
 
 ## Requirements
 
-The module requires the OpenAI python library named `openai` and Odoo 16.0.
+The module requires the OpenAI python library named `openai` and Odoo 15.0.
 
 
 ## Installation instructions 
