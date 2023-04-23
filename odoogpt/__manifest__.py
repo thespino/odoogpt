@@ -4,7 +4,7 @@
     'summary': 'Make OdooBot finally useful. Integrate with OpenAI ChatGPT (GPT-3)',
     'description': """Make OdooBot useful by adding OpenAI GPT-3 intelligence 🧠""",
     'license': 'LGPL-3',
-    'version': '16.0.1.0.1',
+    'version': '15.0.1.0.0',
     'category': 'Productivity/Discuss',
     'author': 'thespino',
     'website': 'https://odoogpt.thespino.dev',
@@ -38,8 +38,8 @@
     ],
 
     'assets': {
-        'mail.assets_messaging': [
-            'odoogpt/static/src/models/*.js',
+        'web.assets_backend': [
+            'odoogpt/static/src/models/messaging_initializer.js',
         ],
     },
 
