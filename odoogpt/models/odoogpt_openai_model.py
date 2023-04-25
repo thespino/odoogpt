@@ -36,7 +36,7 @@ class OdoogptOpenaiModel(models.Model):
     def _compute_permission_string(self):
         for openai_model in self:
             openai_model.permission_string = json.dumps(
-                json.dumps(self.permission or '{}'),
+                json.loads(self.permission or '{}'),
                 indent=4
             )
 
