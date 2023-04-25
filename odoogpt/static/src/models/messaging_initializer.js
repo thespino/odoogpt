@@ -3,7 +3,7 @@
 import { registerInstancePatchModel } from '@mail/model/model_core';
 import { insert } from '@mail/model/model_field_command';
 
-registerInstancePatchModel('mail.messaging_initializer', 'odogpt/static/src/messaging_initializer_ai.js', {
+registerInstancePatchModel('mail.messaging_initializer', 'odogpt/static/src/messaging_initializer.js', {
     /**
      * @override
      */
