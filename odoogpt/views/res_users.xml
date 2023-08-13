@@ -32,7 +32,10 @@
                                             <field name="odoogpt_openai_model_customize" nolabel="1"/>
                                             <label for="odoogpt_openai_model_customize"/>
                                         </td>
-                                        <td width="100%"><field name="odoogpt_openai_model" class="w-100" attrs="{'readonly': [('odoogpt_openai_model_customize', '!=', True)]}"/></td>
+                                        <td width="100%" class="d-flex">
+                                            <field name="odoogpt_openai_model" class="flex-grow-1" attrs="{'readonly': [('odoogpt_openai_model_customize', '!=', True)]}"/>
+                                            <button name="odoogpt_openai_model_select_from_db" type="object" string="Pick Model..." class="btn btn-secondary flex-shrink-0" attrs="{'invisible': [('odoogpt_openai_model_customize', '!=', True)]}" />
+                                        </td>
                                     </tr>
                                     <tr>
                                         <td class="text-nowrap">
