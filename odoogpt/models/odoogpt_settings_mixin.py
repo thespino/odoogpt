@@ -3,7 +3,7 @@
 import importlib.metadata
 import openai
 from odoo import models, fields, api, _
-from odoo.exceptions import ValidationError
+from odoo.exceptions import ValidationError, UserError
 
 
 class OdoogptSettingsMixin(models.AbstractModel):
@@ -71,3 +71,31 @@ See https://github.com/openai/openai-python/releases/tag/v0.27.0""").format(
         help="""Suffix to send to all OpenAI Completition Api requests""",
         default=False, required=False,
     )
+
+
+    @api.model
+    def odoogpt_openai_test(self):
+        """Call Models list api to check everything is properly set up"""
+        self.ensure_one()
+
+        OdoogptOpenaiUtils = self.env['odoogpt.openai.utils']
+        try:
+            OdoogptOpenaiUtils.models_list()
+        except Exception as ex:
+            raise UserError(ex)
+
+        return {
+            'type': 'ir.actions.client',
+            'tag': 'display_notification',
+            'params': {
+                'title': _('Test success!'),
+                'message': _('Everything properly set up! You\'re good to go!'),
+                'sticky': False,
+            }
+        }
+
+    @api.model
+    def odoogpt_openai_model_select_from_db(self):
+        """Get Models from OpenAI api and show selector wizard"""
+        self.env['odoogpt.openai.model'].sudo().refresh_from_api(format='model')
+        return self.env.ref('odoogpt.odoogpt_openai_model_select_wizard_act_window').read()[0]
