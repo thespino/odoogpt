@@ -39,7 +39,7 @@ See https://github.com/openai/openai-python/releases/tag/v0.27.0""").format(
         default=150, required=True,
     )
 
-    odoogpt_openai_temperature = fields.Integer(string='OpenAI Temperature',
+    odoogpt_openai_temperature = fields.Float(string='OpenAI Temperature',
         help="""See https://platform.openai.com/docs/api-reference/completions/create#completions/create-temperature""",
         default=1, required=True,
     )
