@@ -5,86 +5,21 @@ from odoo.exceptions import UserError
 
 
 class ResConfigSettings(models.TransientModel):
-    _inherit = 'res.config.settings'
+    _inherit = ['res.config.settings', 'odoogpt.settings.mixin']
+    _name = 'res.config.settings'
 
 
-    odoogpt_openai_api_key = fields.Char(
-        string='OpenAI Api token',
-        help="""Open AI Api token can be found at https://beta.openai.com/account/api-keys""",
-        related='company_id.odoogpt_openai_api_key',
-        default=False,
-        required=False,
-        readonly=False,
-    )
-
-    odoogpt_openai_model = fields.Char(
-        string='OpenAI Model',
-        help="""Open AI Model to use: https://beta.openai.com/docs/models/overview""",
-        related='company_id.odoogpt_openai_model',
-        default='text-davinci-003',
-        required=True,
-        readonly=False,
-    )
-
-    odoogpt_openai_max_tokens = fields.Integer(
-        string='OpenAI Max tokens',
-        help="""See https://beta.openai.com/docs/api-reference/completions/create#completions/create-max_tokens""",
-        related='company_id.odoogpt_openai_max_tokens',
-        default=150,
-        required=True,
-        readonly=False,
-    )
-
-    odoogpt_openai_temperature = fields.Integer(
-        string='OpenAI Temperature',
-        help="""See https://beta.openai.com/docs/api-reference/completions/create#completions/create-temperature""",
-        related='company_id.odoogpt_openai_temperature',
-        default=1,
-        required=True,
-        readonly=False,
-    )
+    odoogpt_openai_api_key = fields.Char(related='company_id.odoogpt_openai_api_key', readonly=False)
+    odoogpt_openai_model = fields.Char(related='company_id.odoogpt_openai_model', readonly=False)
+    odoogpt_openai_max_tokens = fields.Integer(related='company_id.odoogpt_openai_max_tokens', readonly=False)
+    odoogpt_openai_temperature = fields.Integer(related='company_id.odoogpt_openai_temperature', readonly=False)
 
 
     # CHAT CUSTOMIZATION ===========================================================================
-
-    odoogpt_chat_method = fields.Selection(
-        string='Chat method',
-        help="""Which method to use for chatting""",
-        related='company_id.odoogpt_chat_method',
-        default='completion',
-        # TODO: will be deprecated, in favour of chat-completion
-        required=False,
-        readonly=False,
-    )
-
-
-    odoogpt_chat_system_message = fields.Text(
-        string='System message',
-        help="""The first message that is sent to ChatGPT to give context and instructions""",
-        related='company_id.odoogpt_chat_system_message',
-        default="""You give useful answers about Odoo ERP and give all requested information""",
-        required=False,
-        readonly=False,
-    )
-
-
-    odoogpt_openai_prompt_prefix = fields.Char(
-        string='OpenAI Prompt prefix',
-        help="""Prefix to send to all OpenAI Completition Api requests""",
-        related='company_id.odoogpt_openai_prompt_prefix',
-        default='In Odoo: ',
-        required=False,
-        readonly=False,
-    )
-
-    odoogpt_openai_prompt_suffix = fields.Char(
-        string='OpenAI Prompt suffix',
-        help="""Suffix to send to all OpenAI Completition Api requests""",
-        related='company_id.odoogpt_openai_prompt_suffix',
-        default=False,
-        required=False,
-        readonly=False,
-    )
+    odoogpt_chat_method = fields.Selection(related='company_id.odoogpt_chat_method', readonly=False)
+    odoogpt_chat_system_message = fields.Text(related='company_id.odoogpt_chat_system_message', readonly=False)
+    odoogpt_openai_prompt_prefix = fields.Char(related='company_id.odoogpt_openai_prompt_prefix', readonly=False)
+    odoogpt_openai_prompt_suffix = fields.Char(related='company_id.odoogpt_openai_prompt_suffix', readonly=False)
 
 
     def set_values(self):
