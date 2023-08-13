@@ -53,23 +53,26 @@
                                             <field name="odoogpt_chat_method_customize" nolabel="1"/>
                                             <label for="odoogpt_chat_method_customize"/>
                                         </td>
-                                        <td width="100%"><field name="odoogpt_chat_method" class="w-100" attrs="{'readonly': [('odoogpt_chat_method_customize', '!=', True)]}"/></td>
+                                        <td width="100%"><field name="odoogpt_chat_method" class="w-100" attrs="{
+                                            'readonly': [('odoogpt_chat_method_customize', '!=', True)],
+                                            'required': [('odoogpt_chat_method_customize', '=', True)],
+                                        }"/></td>
                                     </tr>
-                                    <tr>
+                                    <tr attrs="{'invisible': [('odoogpt_chat_method', '!=', 'chat-completion')]}">
                                         <td class="text-nowrap">
                                             <field name="odoogpt_chat_system_message_customize" nolabel="1"/>
                                             <label for="odoogpt_chat_system_message_customize"/>
                                         </td>
                                         <td width="100%"><field name="odoogpt_chat_system_message" class="w-100" attrs="{'readonly': [('odoogpt_chat_system_message_customize', '!=', True)]}"/></td>
                                     </tr>
-                                    <tr>
+                                    <tr attrs="{'invisible': [('odoogpt_chat_method', '!=', 'completion')]}">
                                         <td class="text-nowrap">
                                             <field name="odoogpt_openai_prompt_prefix_customize" nolabel="1"/>
                                             <label for="odoogpt_openai_prompt_prefix_customize"/>
                                         </td>
                                         <td width="100%"><field name="odoogpt_openai_prompt_prefix" class="w-100" attrs="{'readonly': [('odoogpt_openai_prompt_prefix_customize', '!=', True)]}"/></td>
                                     </tr>
-                                    <tr>
+                                    <tr attrs="{'invisible': [('odoogpt_chat_method', '!=', 'completion')]}">
                                         <td class="text-nowrap">
                                             <field name="odoogpt_openai_prompt_suffix_customize" nolabel="1"/>
                                             <label for="odoogpt_openai_prompt_suffix_customize"/>
