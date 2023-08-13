@@ -11,7 +11,7 @@ class ResConfigSettings(models.TransientModel):
     odoogpt_openai_api_key = fields.Char(related='company_id.odoogpt_openai_api_key', readonly=False)
     odoogpt_openai_model = fields.Char(related='company_id.odoogpt_openai_model', readonly=False)
     odoogpt_openai_max_tokens = fields.Integer(related='company_id.odoogpt_openai_max_tokens', readonly=False)
-    odoogpt_openai_temperature = fields.Integer(related='company_id.odoogpt_openai_temperature', readonly=False)
+    odoogpt_openai_temperature = fields.Float(related='company_id.odoogpt_openai_temperature', readonly=False)
 
 
     # CHAT CUSTOMIZATION ===========================================================================
