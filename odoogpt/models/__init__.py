@@ -1,3 +1,4 @@
+from . import odoogpt_settings_mixin
 from . import res_company
 from . import res_config_settings
 from . import mail_channel
