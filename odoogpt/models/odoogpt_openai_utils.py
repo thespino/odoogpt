@@ -40,7 +40,7 @@ class OdoogptOpenaiUtils(models.AbstractModel):
         ])
 
     def models_list(self, **kwargs):
-        """List available Models. Ref. https://beta.openai.com/docs/api-reference/models/list"""
+        """List available Models. Ref. https://platform.openai.com/docs/api-reference/models/list"""
         response = openai.Model.list(
             **{
                 **self._models_list__get_parameters(),
@@ -63,7 +63,7 @@ class OdoogptOpenaiUtils(models.AbstractModel):
         ])
 
     def completition_create(self, prompt, **kwargs):
-        """Create a Completition. Ref. https://beta.openai.com/docs/api-reference/completions"""
+        """Create a Completition. Ref. https://platform.openai.com/docs/api-reference/completions"""
         response = openai.Completion.create(
             prompt=prompt,
             **{
@@ -127,7 +127,7 @@ class OdoogptOpenaiUtils(models.AbstractModel):
         ])
 
     def files_list(self, **kwargs):
-        """List Files. Ref. https://beta.openai.com/docs/api-reference/files/list"""
+        """List Files. Ref. https://platform.openai.com/docs/api-reference/files/list"""
         response = openai.File.list(
             **{
                 **self._files_list__get_parameters(),
@@ -146,7 +146,7 @@ class OdoogptOpenaiUtils(models.AbstractModel):
         ])
 
     def files_create(self, file, purpose='fine-tune', **kwargs):
-        """Upload/Create File. Ref. https://beta.openai.com/docs/api-reference/files/upload"""
+        """Upload/Create File. Ref. https://platform.openai.com/docs/api-reference/files/upload"""
         response = openai.File.create(
             file=file,
             purpose=purpose,
@@ -167,7 +167,7 @@ class OdoogptOpenaiUtils(models.AbstractModel):
         ])
 
     def files_delete(self, file_id, **kwargs):
-        """Delete File. Ref. https://beta.openai.com/docs/api-reference/files/delete"""
+        """Delete File. Ref. https://platform.openai.com/docs/api-reference/files/delete"""
         response = openai.File.delete(
             sid=file_id,
             **{
@@ -187,7 +187,7 @@ class OdoogptOpenaiUtils(models.AbstractModel):
         ])
 
     def files_download(self, file_id, **kwargs):
-        """Download File. Ref. https://beta.openai.com/docs/api-reference/files/retrieve-content"""
+        """Download File. Ref. https://platform.openai.com/docs/api-reference/files/retrieve-content"""
         response = openai.File.download(
             id=file_id,
             **{
@@ -209,7 +209,7 @@ class OdoogptOpenaiUtils(models.AbstractModel):
         ])
 
     def fine_tunes_list(self, **kwargs):
-        """List Fine Tunes. Ref. https://beta.openai.com/docs/api-reference/fine-tunes/list"""
+        """List Fine Tunes. Ref. https://platform.openai.com/docs/api-reference/fine-tunes/list"""
         response = openai.FineTune.list(
             **{
                 **self._fine_tunes_list__get_parameters(),
@@ -228,7 +228,7 @@ class OdoogptOpenaiUtils(models.AbstractModel):
         ])
 
     def fine_tunes_create(self, training_file, **kwargs):
-        """Create Fine Tune. Ref. https://beta.openai.com/docs/api-reference/fine-tunes/create"""
+        """Create Fine Tune. Ref. https://platform.openai.com/docs/api-reference/fine-tunes/create"""
         response = openai.FineTune.create(
             training_file=training_file,
             **{
@@ -248,7 +248,7 @@ class OdoogptOpenaiUtils(models.AbstractModel):
         ])
 
     def fine_tunes_cancel(self, fine_tune_id, **kwargs):
-        """Cancel Fine Tune job. Ref. https://beta.openai.com/docs/api-reference/fine-tunes/cancel"""
+        """Cancel Fine Tune job. Ref. https://platform.openai.com/docs/api-reference/fine-tunes/cancel"""
         response = openai.FineTune.cancel(
             id=fine_tune_id,
             **{

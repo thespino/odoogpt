@@ -25,22 +25,22 @@ See https://github.com/openai/openai-python/releases/tag/v0.27.0""").format(
     # ODOOGPT SETTINGS =============================================================================
 
     odoogpt_openai_api_key = fields.Char(string='OpenAI Api token',
-        help="""Open AI Api token can be found at https://beta.openai.com/account/api-keys""",
+        help="""Open AI Api token can be found at https://platform.openai.com/account/api-keys""",
         default=False, required=False,
     )
 
     odoogpt_openai_model = fields.Char(string='OpenAI Model',
-        help="""Open AI Model to use: https://beta.openai.com/docs/models/overview""",
+        help="""Open AI Model to use: https://platform.openai.com/docs/models/overview""",
         default='text-davinci-003', required=True,
     )
 
     odoogpt_openai_max_tokens = fields.Integer(string='OpenAI Max tokens',
-        help="""See https://beta.openai.com/docs/api-reference/completions/create#completions/create-max_tokens""",
+        help="""See https://platform.openai.com/docs/api-reference/completions/create#completions/create-max_tokens""",
         default=150, required=True,
     )
 
     odoogpt_openai_temperature = fields.Integer(string='OpenAI Temperature',
-        help="""See https://beta.openai.com/docs/api-reference/completions/create#completions/create-temperature""",
+        help="""See https://platform.openai.com/docs/api-reference/completions/create#completions/create-temperature""",
         default=1, required=True,
     )
 
