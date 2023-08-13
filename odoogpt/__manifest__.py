@@ -24,6 +24,7 @@
         'security/ir.model.access.csv',
 
         'views/res_config_settings.xml',
+        'views/res_users.xml',
 
         'views/odoogpt_openai_model.xml',
         'views/odoogpt_openai_log.xml',
