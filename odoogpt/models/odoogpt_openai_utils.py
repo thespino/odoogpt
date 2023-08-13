@@ -13,9 +13,9 @@ class OdoogptOpenaiUtils(models.AbstractModel):
     # UTILS ==============================================================================
 
     def _odoogpt_check_api_key(self, raise_err=True):
-        """Check api key existance in company"""
-        if self.env.company.odoogpt_openai_api_key:
-            return self.env.company.odoogpt_openai_api_key
+        """Check api key existance in user/company"""
+        if self.env.user.odoogpt_openai_api_key:
+            return self.env.user.odoogpt_openai_api_key
         if raise_err:
             raise ValidationError(_('OpenAI Api Token not set in settings!'))
         else:
@@ -25,7 +25,7 @@ class OdoogptOpenaiUtils(models.AbstractModel):
         """Get params to pass to openai library to make a successful request"""
         params = {}
         for PARAM in PARAMETERS:
-            params[PARAM[1]] = self.env.company[PARAM[0]]
+            params[PARAM[1]] = self.env.user[PARAM[0]]
 
         return params
 
