@@ -92,7 +92,3 @@ See https://github.com/openai/openai-python/releases/tag/v0.27.0""").format(
             }
         }
 
-    def odoogpt_openai_model_select_from_db(self):
-        """Get Models from OpenAI api and show selector wizard"""
-        self.env['odoogpt.openai.model'].sudo().refresh_from_api(format='model')
-        return self.env.ref('odoogpt.odoogpt_openai_model_select_wizard_act_window').read()[0]
