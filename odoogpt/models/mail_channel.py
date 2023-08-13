@@ -39,11 +39,11 @@ class MailChannel(models.Model):
     def _execute_command_ai(self, partner, prompt):
         response = _('NO RESPONSE!! Please check settings')
 
-        if self.env.company.odoogpt_chat_method == 'completion':
+        if self.env.user.odoogpt_chat_method == 'completion':
             response = self.env['odoogpt.openai.utils'].completition_create(
                 prompt=self._execute_command_ai__build_prompt_completion(prompt)
             )
-        elif self.env.company.odoogpt_chat_method == 'chat-completion':
+        elif self.env.user.odoogpt_chat_method == 'chat-completion':
             response = self.env['odoogpt.openai.utils'].chat_completion_create(
                 messages=self._execute_command_ai__build_prompt_chat_completion(prompt)
             )
@@ -57,16 +57,16 @@ class MailChannel(models.Model):
     def _execute_command_ai__build_prompt_completion(self, prompt):
         """Build the message to send to OpenAI Completition api"""
         return '{0}{1}{2}'.format(
-            self.env.company.odoogpt_openai_prompt_prefix or '',
+            self.env.user.odoogpt_openai_prompt_prefix or '',
             prompt,
-            self.env.company.odoogpt_openai_prompt_suffix or ''
+            self.env.user.odoogpt_openai_prompt_suffix or ''
         )
     _execute_command_ai__build_prompt = _execute_command_ai__build_prompt_completion    # unnecessary backward compatibility
 
     def _execute_command_ai__build_prompt_chat_completion(self, prompt):
         """Build the message to send to OpenAI Completition api"""
         return [
-            {'role': 'system', 'content': self.env.company.odoogpt_chat_system_message},
+            {'role': 'system', 'content': self.env.user.odoogpt_chat_system_message},
             {'role': 'user', 'content': prompt},
         ]
 
