@@ -73,10 +73,8 @@ See https://github.com/openai/openai-python/releases/tag/v0.27.0""").format(
     )
 
 
-    @api.model
     def odoogpt_openai_test(self):
         """Call Models list api to check everything is properly set up"""
-        self.ensure_one()
 
         OdoogptOpenaiUtils = self.env['odoogpt.openai.utils']
         try:
@@ -94,7 +92,6 @@ See https://github.com/openai/openai-python/releases/tag/v0.27.0""").format(
             }
         }
 
-    @api.model
     def odoogpt_openai_model_select_from_db(self):
         """Get Models from OpenAI api and show selector wizard"""
         self.env['odoogpt.openai.model'].sudo().refresh_from_api(format='model')
