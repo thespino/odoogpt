@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="odoogpt_res_users_form_view" model="ir.ui.view">
+            <field name="name">odoogpt.res.users.form.view</field>
+            <field name="model">res.users</field>
+            <field name="inherit_id" ref="base.view_users_form" />
+            <field name="arch" type="xml">
+                <xpath expr="//form/sheet/notebook" position="inside">
+                    <page name="page_odoogpt_settings" string="OdooGPT settings" groups="base.group_erp_manager">
+                        <div>
+                            <style>
+                                .page_odoogpt_settings_table .o_readonly_modifier {opacity: 0.5;}
+                            </style>
+
+                            <p class="text-muted">
+                                Change any OdooGPT settings by enabling it and editing it
+                            </p>
+
+                            <table name="page_odoogpt_settings_table" class="page_odoogpt_settings_table w-100">
+                                <tbody>
+                                    <tr>
+                                        <td class="text-nowrap">
+                                            <field name="odoogpt_openai_api_key_customize" nolabel="1"/>
+                                            <label for="odoogpt_openai_api_key_customize"/>
+                                        </td>
+                                        <td width="100%"><field name="odoogpt_openai_api_key" class="w-100" attrs="{'readonly': [('odoogpt_openai_api_key_customize', '!=', True)]}"/></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-nowrap">
+                                            <field name="odoogpt_openai_model_customize" nolabel="1"/>
+                                            <label for="odoogpt_openai_model_customize"/>
+                                        </td>
+                                        <td width="100%"><field name="odoogpt_openai_model" class="w-100" attrs="{'readonly': [('odoogpt_openai_model_customize', '!=', True)]}"/></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-nowrap">
+                                            <field name="odoogpt_openai_max_tokens_customize" nolabel="1"/>
+                                            <label for="odoogpt_openai_max_tokens_customize"/>
+                                        </td>
+                                        <td width="100%"><field name="odoogpt_openai_max_tokens" class="w-100" attrs="{'readonly': [('odoogpt_openai_max_tokens_customize', '!=', True)]}"/></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-nowrap">
+                                            <field name="odoogpt_openai_temperature_customize" nolabel="1"/>
+                                            <label for="odoogpt_openai_temperature_customize"/>
+                                        </td>
+                                        <td width="100%"><field name="odoogpt_openai_temperature" class="w-100" attrs="{'readonly': [('odoogpt_openai_temperature_customize', '!=', True)]}"/></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-nowrap">
+                                            <field name="odoogpt_chat_method_customize" nolabel="1"/>
+                                            <label for="odoogpt_chat_method_customize"/>
+                                        </td>
+                                        <td width="100%"><field name="odoogpt_chat_method" class="w-100" attrs="{'readonly': [('odoogpt_chat_method_customize', '!=', True)]}"/></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-nowrap">
+                                            <field name="odoogpt_chat_system_message_customize" nolabel="1"/>
+                                            <label for="odoogpt_chat_system_message_customize"/>
+                                        </td>
+                                        <td width="100%"><field name="odoogpt_chat_system_message" class="w-100" attrs="{'readonly': [('odoogpt_chat_system_message_customize', '!=', True)]}"/></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-nowrap">
+                                            <field name="odoogpt_openai_prompt_prefix_customize" nolabel="1"/>
+                                            <label for="odoogpt_openai_prompt_prefix_customize"/>
+                                        </td>
+                                        <td width="100%"><field name="odoogpt_openai_prompt_prefix" class="w-100" attrs="{'readonly': [('odoogpt_openai_prompt_prefix_customize', '!=', True)]}"/></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-nowrap">
+                                            <field name="odoogpt_openai_prompt_suffix_customize" nolabel="1"/>
+                                            <label for="odoogpt_openai_prompt_suffix_customize"/>
+                                        </td>
+                                        <td width="100%"><field name="odoogpt_openai_prompt_suffix" class="w-100" attrs="{'readonly': [('odoogpt_openai_prompt_suffix_customize', '!=', True)]}"/></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </page>
+                </xpath>
+            </field>
+        </record>
+
+    </data>
+</odoo>
