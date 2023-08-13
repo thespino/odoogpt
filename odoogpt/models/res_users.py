@@ -22,7 +22,7 @@ class ResUsers(models.Model):
     # If setting is customized on user, get the user setting, otherwise get the company setting.
     # TODO: In future, generalize this, will be hard to maintain
 
-    odoogpt_openai_api_key = fields.Char(compute='_compute_odoogpt_openai_api_key', store=True)
+    odoogpt_openai_api_key = fields.Char(compute='_compute_odoogpt_openai_api_key', store=True, required=False)
     @api.depends('company_id.odoogpt_openai_api_key', 'odoogpt_openai_api_key_customize')
     def _compute_odoogpt_openai_api_key(self):
         for rec in self:
@@ -34,7 +34,7 @@ class ResUsers(models.Model):
             else:
                 rec.odoogpt_openai_api_key = rec.company_id.odoogpt_openai_api_key
 
-    odoogpt_openai_model = fields.Char(compute='_compute_odoogpt_openai_model', store=True)
+    odoogpt_openai_model = fields.Char(compute='_compute_odoogpt_openai_model', store=True, required=False)
     @api.depends('company_id.odoogpt_openai_model', 'odoogpt_openai_model_customize')
     def _compute_odoogpt_openai_model(self):
         for rec in self:
@@ -46,7 +46,7 @@ class ResUsers(models.Model):
             else:
                 rec.odoogpt_openai_model = rec.company_id.odoogpt_openai_model
 
-    odoogpt_openai_max_tokens = fields.Integer(compute='_compute_odoogpt_openai_max_tokens', store=True)
+    odoogpt_openai_max_tokens = fields.Integer(compute='_compute_odoogpt_openai_max_tokens', store=True, required=False)
     @api.depends('company_id.odoogpt_openai_max_tokens', 'odoogpt_openai_max_tokens_customize')
     def _compute_odoogpt_openai_max_tokens(self):
         for rec in self:
@@ -58,7 +58,7 @@ class ResUsers(models.Model):
             else:
                 rec.odoogpt_openai_max_tokens = rec.company_id.odoogpt_openai_max_tokens
 
-    odoogpt_openai_temperature = fields.Float(compute='_compute_odoogpt_openai_temperature', store=True)
+    odoogpt_openai_temperature = fields.Float(compute='_compute_odoogpt_openai_temperature', store=True, required=False)
     @api.depends('company_id.odoogpt_openai_temperature', 'odoogpt_openai_temperature_customize')
     def _compute_odoogpt_openai_temperature(self):
         for rec in self:
@@ -70,7 +70,7 @@ class ResUsers(models.Model):
             else:
                 rec.odoogpt_openai_temperature = rec.company_id.odoogpt_openai_temperature
 
-    odoogpt_chat_method = fields.Selection(compute='_compute_odoogpt_chat_method', store=True)
+    odoogpt_chat_method = fields.Selection(compute='_compute_odoogpt_chat_method', store=True, required=False)
     @api.depends('company_id.odoogpt_chat_method', 'odoogpt_chat_method_customize')
     def _compute_odoogpt_chat_method(self):
         for rec in self:
@@ -82,7 +82,7 @@ class ResUsers(models.Model):
             else:
                 rec.odoogpt_chat_method = rec.company_id.odoogpt_chat_method
 
-    odoogpt_chat_system_message = fields.Text(compute='_compute_odoogpt_chat_system_message', store=True)
+    odoogpt_chat_system_message = fields.Text(compute='_compute_odoogpt_chat_system_message', store=True, required=False)
     @api.depends('company_id.odoogpt_chat_system_message', 'odoogpt_chat_system_message_customize')
     def _compute_odoogpt_chat_system_message(self):
         for rec in self:
@@ -94,7 +94,7 @@ class ResUsers(models.Model):
             else:
                 rec.odoogpt_chat_system_message = rec.company_id.odoogpt_chat_system_message
 
-    odoogpt_openai_prompt_prefix = fields.Char(compute='_compute_odoogpt_openai_prompt_prefix', store=True)
+    odoogpt_openai_prompt_prefix = fields.Char(compute='_compute_odoogpt_openai_prompt_prefix', store=True, required=False)
     @api.depends('company_id.odoogpt_openai_prompt_prefix', 'odoogpt_openai_prompt_prefix_customize')
     def _compute_odoogpt_openai_prompt_prefix(self):
         for rec in self:
@@ -106,7 +106,7 @@ class ResUsers(models.Model):
             else:
                 rec.odoogpt_openai_prompt_prefix = rec.company_id.odoogpt_openai_prompt_prefix
 
-    odoogpt_openai_prompt_suffix = fields.Char(compute='_compute_odoogpt_openai_prompt_suffix', store=True)
+    odoogpt_openai_prompt_suffix = fields.Char(compute='_compute_odoogpt_openai_prompt_suffix', store=True, required=False)
     @api.depends('company_id.odoogpt_openai_prompt_suffix', 'odoogpt_openai_prompt_suffix_customize')
     def _compute_odoogpt_openai_prompt_suffix(self):
         for rec in self:
