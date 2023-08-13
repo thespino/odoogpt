@@ -1,6 +1,7 @@
 from . import odoogpt_settings_mixin
 from . import res_company
 from . import res_config_settings
+from . import res_users
 from . import mail_channel
 from . import odoogpt_openai_utils
 from . import odoogpt_openai_mixin
