@@ -47,3 +47,8 @@ class ResConfigSettings(models.TransientModel):
             odoogpt_openai_prompt_suffix = self.env.company.odoogpt_openai_prompt_suffix
         )
         return res
+
+    def odoogpt_openai_model_select_from_db(self):
+        """Get Models from OpenAI api and show selector wizard"""
+        self.env['odoogpt.openai.model'].sudo().refresh_from_api(format='model')
+        return self.env.ref('odoogpt.odoogpt_openai_model_select_wizard_act_window').read()[0]

@@ -9,6 +9,8 @@
                 <form name="odoogpt_openai_model_select_wizard" string="Pick OpenAI Model">
                     <sheet>
                         <group colspan="2">
+                            <field name="res_id" invisible="1" force_save="1" />
+                            <field name="res_model" invisible="1" force_save="1" />
                             <field name="odoogpt_openai_model" options="{'no_open': True, 'no_create': True, 'no_quick_create': True}" />
                         </group>
                     </sheet>
