@@ -37,13 +37,13 @@ pip install openai
 
 ### Base config
 
-1. Go to **"Settings → OdooGPT"** and fill your OpenAI Api token. Get it from there: https://beta.openai.com/account/api-keys
+1. Go to **"Settings → OdooGPT"** and fill your OpenAI Api token. Get it from there: https://platform.openai.com/account/api-keys
 
 2. Save configurations
 
 3. Click "Test" near the api token. If message "Everything properly set up! You're good to go!" appears, the configuration is done. 
 
-4. If needed, play with the **"OpenAI Parameters"**. To understand how they work, refer to OpenAi official docs at https://beta.openai.com/docs 
+4. If needed, play with the **"OpenAI Parameters"**. To understand how they work, refer to OpenAi official docs at https://platform.openai.com/docs 
 
 > NOTE: by default, the system will use the model "text-davinci-003". You can change it in settings
 
