@@ -27,7 +27,7 @@
                                         </p>
                                         <p class="mb16 text-muted">
                                             Insert your OpenAI Api token. It can be found at 
-                                            <a href="https://beta.openai.com/account/api-keys" target="_blank">https://beta.openai.com/account/api-keys</a>. <br/>
+                                            <a href="https://platform.openai.com/account/api-keys" target="_blank">https://platform.openai.com/account/api-keys</a>. <br/>
                                             Please keep it secret safe!
                                         </p>
                                         <field name="odoogpt_openai_api_key" class="w-75" />
