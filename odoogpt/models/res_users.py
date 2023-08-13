@@ -117,3 +117,16 @@ class ResUsers(models.Model):
                     rec.odoogpt_openai_prompt_suffix = False
             else:
                 rec.odoogpt_openai_prompt_suffix = rec.company_id.odoogpt_openai_prompt_suffix
+
+
+    def odoogpt_openai_model_select_from_db(self):
+        """Get Models from OpenAI api and show selector wizard"""
+        self.env['odoogpt.openai.model'].sudo().refresh_from_api(format='model')
+        action = self.env.ref('odoogpt.odoogpt_openai_model_select_wizard_act_window').read()[0]
+
+        action['context'] = {
+            'default_res_id': self.id,
+            'default_res_model': self._name,
+        }
+
+        return action
