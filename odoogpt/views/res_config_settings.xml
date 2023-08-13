@@ -30,6 +30,20 @@
                                         <button name="odoogpt_openai_test" type="object" string="Test" />
                                     </div>
                                 </div>
+
+                                <div class="col-12 col-lg-6 o_setting_box" id="odoogpt_user_customization">
+                                    <div class="o_setting_left_pane">
+                                    </div>
+                                    <div class="o_setting_right_pane">
+                                        <p class="mb-0 o_form_label">
+                                            User-based customization
+                                        </p>
+                                        <p class="mb16 text-muted">
+                                            Customize OdooGPT for each user
+                                        </p>
+                                        <button name="%(base.action_res_users)d" type="action" string="Customize Users settings" icon="fa-arrow-right" />
+                                    </div>
+                                </div>
                             </div>
                         </div>
 
