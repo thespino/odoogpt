@@ -68,8 +68,15 @@ Icons generated with https://spilymp.github.io/ibo
 
 
 
-# Sponsors
+# Sponsors ❤
 
 Thanks to this awesome people, this project can be free for you to enjoy!
 
-<!-- sponsors --><!-- sponsors -->
+<table>
+    <tr>
+        <td align="middle">
+            <img src="https://github.com/james-mtsoln.png?size=60" />
+            <p><a href="https://github.com/james-mtsoln" target="_blank">james-mtsoln</a></p>
+        </td>
+    </tr>
+</table>
