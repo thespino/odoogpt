@@ -65,3 +65,11 @@ Icons generated with https://spilymp.github.io/ibo
 - Odoo Version: Odoo 15
 - Icon Set: Font Awesome 5
 - Icon Background Color: #701068
+
+
+
+# Sponsors
+
+Thanks to this awesome people, this project can be free for you to enjoy!
+
+<!-- sponsors --><!-- sponsors -->
