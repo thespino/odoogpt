@@ -8,6 +8,49 @@ class ResUsers(models.Model):
     _name = 'res.users'
 
 
+    @property
+    def SELF_READABLE_FIELDS(self):
+        return super().SELF_READABLE_FIELDS + [
+            'odoogpt_openai_api_key_customize',
+            'odoogpt_openai_api_key',
+            'odoogpt_openai_model_customize',
+            'odoogpt_openai_model',
+            'odoogpt_openai_max_tokens_customize',
+            'odoogpt_openai_max_tokens',
+            'odoogpt_openai_temperature_customize',
+            'odoogpt_openai_temperature',
+            'odoogpt_chat_method_customize',
+            'odoogpt_chat_method',
+            'odoogpt_chat_system_message_customize',
+            'odoogpt_chat_system_message',
+            'odoogpt_openai_prompt_prefix_customize',
+            'odoogpt_openai_prompt_prefix',
+            'odoogpt_openai_prompt_suffix_customize',
+            'odoogpt_openai_prompt_suffix',
+        ]
+
+    @property
+    def SELF_WRITEABLE_FIELDS(self):
+        return super().SELF_WRITEABLE_FIELDS + [
+            'odoogpt_openai_api_key_customize',
+            'odoogpt_openai_api_key',
+            'odoogpt_openai_model_customize',
+            'odoogpt_openai_model',
+            'odoogpt_openai_max_tokens_customize',
+            'odoogpt_openai_max_tokens',
+            'odoogpt_openai_temperature_customize',
+            'odoogpt_openai_temperature',
+            'odoogpt_chat_method_customize',
+            'odoogpt_chat_method',
+            'odoogpt_chat_system_message_customize',
+            'odoogpt_chat_system_message',
+            'odoogpt_openai_prompt_prefix_customize',
+            'odoogpt_openai_prompt_prefix',
+            'odoogpt_openai_prompt_suffix_customize',
+            'odoogpt_openai_prompt_suffix',
+        ]
+
+
     odoogpt_openai_api_key_customize = fields.Boolean(string='Customize OpenAI Api token', default=False)
     odoogpt_openai_model_customize = fields.Boolean(string='Customize OpenAI Model', default=False)
     odoogpt_openai_max_tokens_customize = fields.Boolean(string='Customize OpenAI Max tokens', default=False)
@@ -122,7 +165,7 @@ class ResUsers(models.Model):
     def odoogpt_openai_model_select_from_db(self):
         """Get Models from OpenAI api and show selector wizard"""
         self.env['odoogpt.openai.model'].sudo().refresh_from_api(format='model')
-        action = self.env.ref('odoogpt.odoogpt_openai_model_select_wizard_act_window').read()[0]
+        action = self.env.ref('odoogpt.odoogpt_openai_model_select_wizard_act_window').sudo().read()[0]
 
         action['context'] = {
             'default_res_id': self.id,

@@ -21,6 +21,7 @@
     },
 
     'data': [
+        'security/res_groups.xml',
         'security/ir.model.access.csv',
 
         'views/res_config_settings.xml',
