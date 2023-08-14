@@ -19,7 +19,7 @@
         <record model="res.groups" id="group_odoogpt_user_settings_basic">
             <field name="name">Basic</field>
             <field name="category_id" ref="module_category_odoogpt_user_settings"/>
-            <field name="comment">Allow self editing some OdooGPT: Chat method, Prefix, Suffix or System Message</field>
+            <field name="comment">Allow self editing some OdooGPT settings: Chat method, Prefix, Suffix or System Message</field>
         </record>
         <record model="res.groups" id="group_odoogpt_user_settings_medium">
             <field name="name">Medium</field>
