@@ -1,6 +1,10 @@
 # -*- coding: utf-8 -*-
 
-import importlib.metadata
+import sys
+if sys.version_info < (3, 8):
+    from importlib_metadata import metadata
+else:
+    from importlib import metadata
 import openai
 from odoo import models, fields, api, _
 from odoo.exceptions import ValidationError, UserError
@@ -18,7 +22,7 @@ class OdoogptSettingsMixin(models.AbstractModel):
 Check that openai python module version is >= 0.27.0 to use this functionality; otherwise, set "Chat method" in OdooGPT settings to "Completion". 
 Installed version: {openai_version} 
 See https://github.com/openai/openai-python/releases/tag/v0.27.0""").format(
-                openai_version=str(importlib.metadata.version('openai'))
+                openai_version=str(metadata.version('openai'))
             ))
 
 
